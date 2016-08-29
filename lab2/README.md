@@ -50,4 +50,4 @@ API docs: http://elixir-lang.org/docs/stable/elixir/
 
 ### Solution ( no peeking :) )
 
-See `solution.ex` in the `lab3` branch.
+See `solution.ex` in the `lab2` directory.
