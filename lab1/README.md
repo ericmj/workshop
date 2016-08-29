@@ -54,11 +54,11 @@ iex(1)> Lab1.taskX [:a, :b, :c]
 
 ##### Advanced user problems (if you have more time)
 
-  1. Return the minimum value of a list.
+  1. Return the minimum value of a list with recursion.
 
-  2. Return the average value of a list.
+  2. Return the average value of a list with recursion.
 
-  3. Count the number of occurrences of each atom in a list of atoms.
+  3. Count the number of occurrences of each atom in a list of atoms with recursion.
 
   4. Can you solve the above tasks by using higher-order functions and using
      functions on the module `Enum` and `List` in Elixir's standard library?
