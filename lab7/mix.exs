@@ -7,6 +7,8 @@ defmodule Lab7.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     test_coverage: [tool: ExCoveralls],
+     # preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test],
      deps: deps()]
   end
 
@@ -27,7 +29,7 @@ defmodule Lab7.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:true_story, ">= 0.0.0", only: :dev},
-     {:excoveralls, ">= 0.0.0", only: :dev}]
+    [{:true_story, ">= 0.0.0"},
+     {:excoveralls, ">= 0.0.0"}]
   end
 end

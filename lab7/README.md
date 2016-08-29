@@ -2,12 +2,15 @@
 
 ### Lab purpose
 
-In this lab we will learn how to write tests driven by test coverage.
+In this lab we will learn how to write tests driven by test coverage. We will
+be using ExCoveralls to get coverage reporting.
 
 ### Lab instructions
 
+Use `$ mix coveralls` to run the test coverage tool or `$ mix coveralls.detail --filter file.ex`
+to run it for a specific file.
 
-
+Write tests in `test/lab7_test.exs` to fully cover the code in `lib/lab7`.
 
 ### Links
 
