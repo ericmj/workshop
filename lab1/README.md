@@ -10,11 +10,18 @@ matching.
 
 ### Lab instructions
 
-Run files in your shell with `$ elixir lib/lab1.ex`. You can also require
-the file in Elixir's interactive shell `$ iex -r lib/lab1.ex`. A third alternative
-is to load and start the full Mix project environment with `$ iex -S mix`.
+Run files in your shell with `$ elixir lib/lab1.ex`
 
-After changes to a module it can be reloaded with `r Lab1` in IEx. Check the
+Run the tests in your shell with `$ mix test` 
+
+You will notice that your tests fail. Your job is to implement the tasks so 
+that the tests pass. 
+
+As you build your functions, you can require each separate file in 
+in Elixir's interactive shell `$ iex -r lib/lab1.ex`. Alternatively, you can
+load and start the full Mix project environment with `$ iex -S mix`.
+
+After changes to a module the console can be reloaded with `r Lab1` in IEx. Check the
 README in the base directory for instructions on how to run tests.
 
   1. Enter the existing directory `lab1`. There is a stub module `Lab1` in the file `lib/lab1.ex`,
