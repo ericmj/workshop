@@ -3,6 +3,24 @@ defmodule Lab2.RoomTest do
   use TrueStory
   alias Lab2.Room
 
+  story "create a message", c
+    |> message(:message, "Joe", "Hello")
+  verify do
+    assert {"Joe", "Hello"} = c.message
+  end
+
+  story "create a second message", c
+    |> message(:message1, "Mike", "Erlang")
+    |> message(:message2, "Robert", "LFE")
+  verify do
+    assert {"Mike", "Erlang"} = c.message1
+    assert {"Robert", "LFE"} = c.message2
+  end
+
+  story "create a member", c
+    |> message(:message, "Joe", "Hello")
+    |> member(:member, "Jose", [:message])
+
   story "new room", c
     |> new_room(:room),
   verify do

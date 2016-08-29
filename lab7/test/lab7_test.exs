@@ -1,6 +1,6 @@
-defmodule Lab2Test do
+defmodule Lab7Test do
   use ExUnit.Case
-  doctest Lab2
+  doctest Lab7
 
   test "the truth" do
     assert 1 + 1 == 2
