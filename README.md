@@ -7,13 +7,13 @@
      - OS X: Install with package manager or http://git-scm.com
      - Linux: Install via distribution package manager or http://git-scm.com
 
-  2. Install Erlang & Elixir
+  2. Install Erlang & Elixir (at least 1.3)
      - See http://elixir-lang.org/install.html
 
 ##### Verify your installations
 
 Verify your installation by calling the executables `git`, `erl` and `iex` in
-your shell. Your erlang installation needs to be on OTP 17 and Elixir on 1.0.0
+your shell. Your erlang installation needs to be on OTP 19 and Elixir on 1.3.x
 or higher. Check the version by running `iex`:
 
 ```
