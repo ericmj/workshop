@@ -1,45 +1,67 @@
 defmodule Lab6Test do
   use ExUnit.Case
   import Lab6
+  use TrueStory
 
-  test "send_message message to yourself" do
+  defp start_room(c) do
     {:ok, pid} = start_link()
-    join(pid, "Me")
-    send_message(pid, "Myself", "Me", "echo")
+    assign c, pid: pid
+  end
 
+  defp join_room(c, name) do
+    join(c.pid, name)
+    c
+  end
+
+  defp process_join_room(c, name, fun) do
+    task = Task.async(fn ->
+      join(c.pid, name)
+      fun.()
+    end)
+
+    assign c, result: Task.await(task)
+  end
+
+  defp receive_once do
+    receive do
+      result -> result
+    end
+  end
+
+  story "send message to yourself", c
+    |> start_room
+    |> join_room("Me"),
+  verify do
+    send_message(c.pid, "Myself", "Me", "echo")
     assert_receive {"Myself", "echo"}
   end
 
-  test "send_messages message to yourself" do
-    {:ok, pid} = start_link()
-    join(pid, "Me")
-    send_messages(pid, "Myself", "echo")
-
+  story "send messages to yourself", c
+    |> start_room
+    |> join_room("Me"),
+  verify do
+    send_messages(c.pid, "Myself", "echo")
     assert_receive {"Myself", "echo"}
   end
 
-  test "send_message message to other process" do
-    {:ok, pid} = start_link()
-    join(pid, "John")
-
-    spawn_link(fn ->
-      join(pid, "Jane")
-      send_message(pid, "Jane", "John", "Hello John")
-    end)
-
+  story "send message to other process", c
+    |> start_room
+    |> join_room("John")
+    |> process_join_room("Jane", fn -> send_message(c.pid, "Jane", "John", "Hello John") end),
+  verify do
     assert_receive {"Jane", "Hello John"}
+    assert {"Jane", "Hello John"} == c.result
   end
 
-  test "send_messages message to all processes" do
-    {:ok, pid} = start_link()
-    join(pid, "John")
-
-    spawn_link(fn ->
-      join(pid, "Jane")
-      send_messages(pid, "Jane","Hello John")
-      assert_receive {"Jane", "Hello John"}
-    end)
-
-    assert_receive {"Jane", "Hello John"}
+  story "send messages to other processes", c
+    |> start_room
+    |> join_room("John")
+    |> process_join_room("Jane", fn ->
+         send_messages(c.pid, "Jane", "Hello everyone")
+         receive_once()
+       end),
+  verify do
+    assert_receive {"Jane", "Hello everyone"}
+    assert {"Jane", "Hello everyone"} == c.result
   end
 end
