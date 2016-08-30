@@ -25,11 +25,11 @@ defmodule Lab6 do
     end)
   end
 
-  def send(_pid, _from, _to, _message) do
+  def send_message(_pid, _from, _to, _message) do
     raise "not implemented yet"
   end
 
-  def broadcast(_pid, _from, _message) do
+  def send_messages(_pid, _from, _message) do
     raise "not implemented yet"
   end
 end

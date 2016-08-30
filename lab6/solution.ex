@@ -25,14 +25,14 @@ defmodule Lab6 do
     end)
   end
 
-  def send(pid, from, to, message) do
+  def send_message(pid, from, to, message) do
     Agent.get(pid, fn room ->
       %{pid: pid} = Map.fetch!(room.members, to)
       send(pid, {from, message})
     end)
   end
 
-  def broadcast(pid, from, message) do
+  def send_messages(pid, from, message) do
     Agent.get(pid, fn room ->
       Enum.each(room.members, fn {_name, %{pid: pid}} ->
         send(pid, {from, message})

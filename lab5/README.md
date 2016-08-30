@@ -8,7 +8,7 @@ you'll have a chat room that will use agents to preserve state.
 
 ### Lab instructions
 
-The `lab5` branch has a file `lib/lab5.ex` which contains an implementation of chat
+The `lab5` directory has a file `lib/lab5.ex` which contains an implementation of chat
 room with some stubbed out functions. As usual, use that template to implement features
 in your chatroom until all of your tests pass.
 
