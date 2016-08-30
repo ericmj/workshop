@@ -2,8 +2,12 @@
 
 ### Lab purpose
 
-Learn about processes and message passing.
+Learn about processes and message passing. We'll be using a slightly different flow. 
+In this lab, we are testing concurrent features without demanding setup requirements, 
+so TrueStory doesn't make much sense. We'll be testing with plain old ExUnit tests. 
 
+We'll also revise the flow a little bit, so you'll know how to create a project
+from scratch. 
 
 ### Lab instructions
 
