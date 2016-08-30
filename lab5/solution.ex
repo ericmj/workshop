@@ -29,10 +29,27 @@ defmodule Lab5 do
     end)
   end
 
-  def new_message(pid, from, to, message) do
+  def members(pid, username) do
+    Agent.update(pid, fn room ->
+      Map.keys(room.members)
+    end)
+  end
+
+  def send_message(pid, from, to, message) do
     Agent.update(pid, fn room ->
       messages = Map.fetch!(room.members, to)
       members = Map.put(room.members, to, [{from, message}|messages])
+      %{room | members: members}
+    end)
+  end
+
+  def send_messages(pid, from, message) do
+    message_tuple = {from, message}
+
+    Agent.update(pid, fn room ->
+      members = Enum.into(room.members, %{}, fn {username, messages} ->
+        {username, [message_tuple|messages]}
+      end)
       %{room | members: members}
     end)
   end

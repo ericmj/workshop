@@ -22,11 +22,19 @@ defmodule Lab5 do
     end)
   end
 
+  def members(_pid, _username) do
+    raise "not implemented yet"
+  end
+
   def leave(_pid, _username) do
     raise "not implemented yet"
   end
 
-  def new_message(_pid, _from, _to, _message) do
+  def send_message(_pid, _from, _to, _message) do
+    raise "not implemented yet"
+  end
+
+  def send_messages(_pid, _from, _message) do
     raise "not implemented yet"
   end
 

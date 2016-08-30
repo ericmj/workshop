@@ -45,9 +45,10 @@ defmodule Lab3 do
 
   def send_messages(room, from, message) do
     message_tuple = {from, message}
-    Enum.into(room.members, %{}, fn {username, messages} ->
+    members = Enum.into(room.members, %{}, fn {username, messages} ->
       {username, [message_tuple|messages]}
     end)
+    %{room | members: members}
   end
 
   def messages_to_user(room, to) do

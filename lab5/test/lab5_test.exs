@@ -28,7 +28,7 @@ defmodule Lab5Test do
     |> room,
   verify do
     join(c.room, "Joe")
-    new_message(c.room, "Robert", "Joe", "Hello Joe")
+    send_message(c.room, "Robert", "Joe", "Hello Joe")
     assert messages_to_user(c.room, "Joe") == ["Hello Joe"]
     assert messages_to_user(c.room, "Robert") == []
   end
@@ -37,7 +37,7 @@ defmodule Lab5Test do
     |> room,
   verify do
     join(c.room, "Joe")
-    new_message(c.room, "Robert", "Joe", "Hello Joe")
+    send_message(c.room, "Robert", "Joe", "Hello Joe")
     assert messages_from_user(c.room, "Robert") == ["Hello Joe"]
     assert messages_from_user(c.room, "Joe") == []
   end

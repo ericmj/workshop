@@ -3,7 +3,7 @@
 ### Lab purpose
 
 This lab will apply the concepts you learned in Lab 4 to Lab 3. When you're done,
-you'll have a chat room that will use agents to prserve state.
+you'll have a chat room that will use agents to preserve state.
 
 
 ### Lab instructions
