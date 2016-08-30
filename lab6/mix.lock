@@ -1,4 +1,0 @@
-%{"blacksmith": {:hex, :blacksmith, "0.1.3"},
-  "faker": {:hex, :faker, "0.5.1"},
-  "poison": {:hex, :poison, "1.4.0"},
-  "shouldi": {:hex, :shouldi, "0.2.3"}}
