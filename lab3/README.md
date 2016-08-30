@@ -16,9 +16,6 @@ The `lab3` directory has a file `lib/lab3.ex` which contains an implementation o
 room with some stubbed out functions. Copy the file to `lib/` in your project and
 implement the functions.
 
-Start an interactive shell with the modules in your project available with
-`$ iex -S mix`, your code can be tested from the shell.
-
   1. Implement the `leave/2` function. Raise an error if the user leaving was
      not previously a member of the function.
 

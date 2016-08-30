@@ -7,8 +7,10 @@ Learn about processes and message passing.
 
 ### Lab instructions
 
-Like in lab1 run scripts in your shell with `$ elixir my_script.exs`. You can
-also require the file in Elixir's interactive shell `$ iex -r my_script.exs`.
+Create a new mix project with `mix new lab4`.
+
+The `lab4` branch has a file `lib/lab4.ex` which contains some stubbed out
+functions. Copy the file to `lib/` in your project and implement the functions.
 
   1. Create a process that just returns the first message it receives and then dies.
 
