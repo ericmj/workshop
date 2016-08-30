@@ -1,54 +1,52 @@
-defmodule Chat.Room do
-  defstruct [:members, :messages]
+defmodule Lab3 do
+  defmodule Room do
+    defstruct [:members]
+  end
 
   def new do
-    %Chat.Room{members: [], messages: []}
+    %Room{members: %{}}
+  end
+
+  def has_member?(room, username) do
+    Map.has_key?(room.members, username)
   end
 
   def join(room, username) do
-    if username in room.members do
+    if Map.has_key?(room.members, username) do
       raise ArgumentError, message: "username already taken"
     else
-      %{room | members: [username|room.members]}
+      members = Map.put(room.members, username, [])
+      %{room | members: members}
     end
   end
 
   def leave(room, username) do
-    if username in room.members do
-      %{room | members: List.delete(room.members, username)}
+    if Map.has_key?(room.members, username) do
+      members = Map.delete(room.members, username)
+      %{room | members: members}
     else
       raise ArgumentError, message: "user not in room"
     end
   end
 
-  def new_message(room, username, message) do
-    message = %{user: username, text: message}
-    %{room | messages: [message|room.messages]}
+  def new_message(room, from, to, message) do
+    case Map.fetch(room.members, to) do
+      {:ok, messages} ->
+        members = Map.put(room.members, to, [{from, message}|messages])
+        %{room | members: members}
+      :error ->
+        raise ArgumentError, message: "user not in room"
+    end
   end
 
-  def messages_by_user(room, username) do
-    for(%{user: user, text: message} <- room.messages,
-        username == user,
-        do: message)
+  def messages_to_user(room, to) do
+    messages = Map.get(room.members, to, [])
+    Enum.map(messages, fn {_from, contents} -> contents end)
   end
 
-  def new_message2(room, username, message, created_at) do
-    message = %{user: username, text: message}, created_at: created_at}
-    %{room | messages: [message|room.messages]}
-  end
-
-  def messages_by_user2(room, username, created_after) do
-    for(%{user: user, text: message, created_at: created_at} <- room.messages,
-        username == user,
-        created_at > created_after
-        do: message)
-  end
-
-  def messages_by_user3(room, username) do
-    for(message <- room.messages,
-        username == message.user,
-        do: message)
-    |> Enum.sort(fn x, y -> x.created_at > y.created_at end)
-    |> Enum.map(& &1.text)
+  def messages_from_user(room, from) do
+    Enum.flat_map(room.members, fn {_to, messages} ->
+      for {^from, message} <- messages, do: message
+    end)
   end
 end

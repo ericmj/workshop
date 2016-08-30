@@ -50,9 +50,7 @@ API docs: http://elixir-lang.org/docs/stable/elixir/
 
   4. `assert/1` http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html#assert/1
 
-  5. `assert_raise/3` http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html#assert_raise/3
-
-  6. `refute/1` http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html#refute/1
+  5. `refute/1` http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html#refute/1
 
 
 ### Solution ( no peeking :) )
