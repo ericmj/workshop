@@ -1,54 +1,64 @@
-defmodule Chat.Room do
-  defstruct [:members, :messages]
+defmodule Lab4 do
+  def task1(message) do
+    pid = spawn(fn ->
+      receive do
+        {pid, string} -> send pid, string
+      end
+    end)
 
-  def new do
-    %Chat.Room{members: [], messages: []}
-  end
-
-  def join(room, username) do
-    if username in room.members do
-      raise ArgumentError, message: "username already taken"
-    else
-      %{room | members: [username|room.members]}
+    send pid, {self(), message}
+    receive do
+      string -> string
     end
   end
 
-  def leave(room, username) do
-    if username in room.members do
-      %{room | members: List.delete(room.members, username)}
-    else
-      raise ArgumentError, message: "user not in room"
+  def task2 do
+    spawn(fn ->
+      receive do
+        {:sum, pid, list} -> send pid, Enum.sum(list)
+      end
+    end)
+  end
+
+  def task3(list_of_lists) do
+    current_pid = self
+
+    refs =
+      Enum.map(list_of_lists, fn list ->
+        ref = make_ref()
+        spawn(fn ->
+          send current_pid, {ref, Enum.sum(list)}
+        end)
+        ref
+      end)
+
+    Enum.map(refs, fn ref ->
+      receive do
+        {^ref, result} -> result
+      end
+    end)
+  end
+
+  defmodule Advanced do
+    def task1(list) do
+      task = Task.async(fn ->
+        Enum.sum(list)
+      end)
+
+      Task.await(task)
     end
-  end
 
-  def new_message(room, username, message) do
-    message = %{user: username, text: message}
-    %{room | messages: [message|room.messages]}
-  end
+    def task2(list_of_lists) do
+      tasks =
+        Enum.map(list_of_lists, fn list ->
+          Task.async(fn ->
+            Enum.sum(list)
+          end)
+        end)
 
-  def messages_by_user(room, username) do
-    for(%{user: user, text: message} <- room.messages,
-        username == user,
-        do: message)
-  end
-
-  def new_message2(room, username, message, created_at) do
-    message = %{user: username, text: message}, created_at: created_at}
-    %{room | messages: [message|room.messages]}
-  end
-
-  def messages_by_user2(room, username, created_after) do
-    for(%{user: user, text: message, created_at: created_at} <- room.messages,
-        username == user,
-        created_at > created_after
-        do: message)
-  end
-
-  def messages_by_user3(room, username) do
-    for(message <- room.messages,
-        username == message.user,
-        do: message)
-    |> Enum.sort(fn x, y -> x.created_at > y.created_at end)
-    |> Enum.map(& &1.text)
+      Enum.map(tasks, fn task ->
+        Task.await(task)
+      end)
+    end
   end
 end

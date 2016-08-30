@@ -1,4 +1,4 @@
-# LAB4
+# Lab4
 
 ### Lab purpose
 
@@ -10,7 +10,7 @@ Learn about processes and message passing.
 Like in lab1 run scripts in your shell with `$ elixir my_script.exs`. You can
 also require the file in Elixir's interactive shell `$ iex -r my_script.exs`.
 
-  1. Create a process that prints the first message it receives and then dies.
+  1. Create a process that just returns the first message it receives and then dies.
 
   2. Create a process that waits for a message containing a list, sum the list
      (from lab1) and reply to the original process.
@@ -46,4 +46,4 @@ API docs: http://elixir-lang.org/docs/stable/elixir/
 
 ### Solution ( no peeking :) )
 
-See `solution.ex` in the `lab4` branch.
+See `solution.ex` in the `lab4` directory.
