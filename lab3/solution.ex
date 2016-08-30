@@ -29,6 +29,10 @@ defmodule Lab3 do
     end
   end
 
+  def members(room) do
+    Enum.map(room.members, fn {username, _messages} -> username end)
+  end
+
   def send_message(room, from, to, message) do
     case Map.fetch(room.members, to) do
       {:ok, messages} ->
@@ -39,7 +43,7 @@ defmodule Lab3 do
     end
   end
 
-  def broadcast_message(room, from, message) do
+  def send_messages(room, from, message) do
     message_tuple = {from, message}
     Enum.into(room.members, %{}, fn {username, messages} ->
       {username, [message_tuple|messages]}

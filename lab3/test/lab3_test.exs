@@ -20,6 +20,7 @@ defmodule Lab3Test do
     room = join(c.room, "Joe")
     assert has_member?(room, "Joe")
     refute has_member?(room, "Jose")
+    assert members(room) == ["Joe"]
   end
 
   story "join existing member", c
@@ -52,7 +53,7 @@ defmodule Lab3Test do
   verify do
     room = join(c.room, "Joe")
     room = join(room, "Robert")
-    room = broadcast_message(room, "Joe", "Hello World")
+    room = send_messages(room, "Joe", "Hello World")
     assert messages_to_user(room, "Joe") == ["Hello World"]
     assert messages_to_user(room, "Robert") == ["Hello World"]
   end

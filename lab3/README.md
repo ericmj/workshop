@@ -2,35 +2,28 @@
 
 ### Lab purpose
 
-In this lab you will create a basic chat room. We are going to put to use the
-skills from lab 1 and will also learn how to create and use a Mix project.
+In this lab, you will build an API to work with the data structures we explored for Lab 2. We will implement our chat room features with an API that works with data structures we set up for Lab 2. Each of our APIs will transform a chat room, building a new one. These are the functions you'll work on:
 
-Try to complete this lab without using the `List` and `Enum` modules.
+  * `leave()` will remove a member from the chatroom
+  * `members()` will return the member names in the chatroom
+  * `send_message()` will add a new message to the message list for a user
+  * `send_messages()` will add a new message to the message list for all users
 
+If you have more time, you can implement two other functions, which filter through messages in the chatroom.
+
+  * `messages_from_user()` and `messages_to_user()` will list all of the messages from or to a given user.
 
 ### Lab instructions
 
-Create a new mix project with `mix new lab3`.
+Clone `lab3` from git if you haven't already done so.
 
 The `lab3` directory has a file `lib/lab3.ex` which contains an implementation of chat
-room with some stubbed out functions. Copy the file to `lib/` in your project and
-implement the functions.
+room with some stubbed out functions. These are the functions you'll implement. For each
+new function, you will:
 
-  1. Implement the `leave/2` function. Raise an error if the user leaving was
-     not previously a member of the function.
+  1. run `mix test`. You will see the failures for each of your unimplemented features.
 
-  2. Implement the `send_message/4` function. A message is a tuple of a username,
-     message contents pair.
-
-  3. Implement the `broadcast_message/4` function. It should broadcast a message
-     to all members of the chat.
-
-  4. Implement the function `messages_to_user/2`. Return all messages sent to the
-     given user.
-
-  5. Implement the function `messages_from_user/2`. Return all messages authored
-     by the given user. TIP: A map is enumerable and take a look at the `Enum.flat_map/2`
-     function and `for` comprehensions.
+  2. Implement the missing feature, and iterate on it until the test passes.
 
 
 ### Links

@@ -20,6 +20,10 @@ defmodule Lab3 do
     end
   end
 
+  def members(_room) do
+    raise "not implemented yet"
+  end
+
   def leave(_room, _username) do
     raise "not implemented yet"
   end
@@ -28,7 +32,7 @@ defmodule Lab3 do
     raise "not implemented yet"
   end
 
-  def broadcast_message(_room, _from, _message) do
+  def send_messages(_room, _from, _message) do
     raise "not implemented yet"
   end
 

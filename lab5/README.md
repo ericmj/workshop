@@ -2,20 +2,15 @@
 
 ### Lab purpose
 
-This lab will expand on the second lab. An `Agent` will be used to wrap the room
-state in a process.
-
-Some of your code can be reused from the second lab or you can grab the code
-from the file with solutions in the `lab3` directory.
+This lab will apply the concepts you learned in Lab 4 to Lab 3. When you're done,
+you'll have a chat room that will use agents to prserve state.
 
 
 ### Lab instructions
 
-Create a new mix project with `mix new lab5`.
-
-The `lab5` directory has a file `lib/lab5.ex` which contains an implementation of chat
-room with some stubbed out functions. Copy the file to `lib/` in your project and
-implement the functions.
+The `lab5` branch has a file `lib/lab5.ex` which contains an implementation of chat
+room with some stubbed out functions. As usual, use that template to implement features
+in your chatroom until all of your tests pass.
 
   1. Implement the `leave/2` function.
 
@@ -31,10 +26,10 @@ implement the functions.
 
 ##### Advanced user problems (if you have more time)
 
-  1. If there is enough time try to implement the process as a `GenServer` or
-     as a normal process with spawn/send/receive. What differences do you notice
-     from the `Agent` version and when would you use an Agent instead of
-     GenServer?
+If there is enough time try to implement the process
+as a normal process with spawn/send/receive. What differences do you notice
+from the Agent version and when would you use an Agent instead of
+GenServer?
 
 ### Links
 
@@ -45,10 +40,6 @@ API docs: http://elixir-lang.org/docs/stable/elixir/
   1. Agent http://elixir-lang.org/getting-started/mix-otp/agent.html
 
   2. `Agent` http://elixir-lang.org/docs/stable/elixir/Agent.html
-
-  3. GenServer http://elixir-lang.org/getting-started/mix-otp/genserver.html
-
-  4. `GenServer` http://elixir-lang.org/docs/stable/elixir/GenServer.html
 
 
 ### Solution ( no peeking :) )
