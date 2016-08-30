@@ -24,7 +24,11 @@ defmodule Lab3 do
     raise "not implemented yet"
   end
 
-  def new_message(_room, _from, _to, _message) do
+  def send_message(_room, _from, _to, _message) do
+    raise "not implemented yet"
+  end
+
+  def broadcast_message(_room, _from, _message) do
     raise "not implemented yet"
   end
 

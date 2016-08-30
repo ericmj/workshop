@@ -1,24 +1,30 @@
 # Lab6
 
-**TODO: Add description**
+### Lab purpose
 
-## Installation
+In this lab we will further expand on the chat room to add message sending and
+broadcast functionality.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add `lab6` to your list of dependencies in `mix.exs`:
+### Lab instructions
 
-    ```elixir
-    def deps do
-      [{:lab6, "~> 0.1.0"}]
-    end
-    ```
+Create a new mix project with `mix new lab6`.
 
-  2. Ensure `lab6` is started before your application:
+The `lab6` directory has a file `lib/lab6.ex` which contains an implementation of chat
+room with some stubbed out functions. Copy the file to `lib/` in your project and
+implement the functions.
 
-    ```elixir
-    def application do
-      [applications: [:lab6]]
-    end
-    ```
+  1. Implement the `send/4` function.
 
+  2. Implement the `broadcast/3` function.
+
+### Links
+
+Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+
+API docs: http://elixir-lang.org/docs/stable/elixir/
+
+
+### Solution ( no peeking :) )
+
+See `solution.ex` in the `lab6` directory.

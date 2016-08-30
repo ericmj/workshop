@@ -9,7 +9,7 @@ Learn about processes and message passing.
 
 Create a new mix project with `mix new lab4`.
 
-The `lab4` branch has a file `lib/lab4.ex` which contains some stubbed out
+The `lab4` directory has a file `lib/lab4.ex` which contains some stubbed out
 functions. Copy the file to `lib/` in your project and implement the functions.
 
   1. Create a process that just returns the first message it receives and then dies.

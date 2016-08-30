@@ -13,9 +13,9 @@ from the file with solutions in the `lab3` directory.
 
 Create a new mix project with `mix new lab5`.
 
-The `lab5` branch has a file `lib/lab5.ex` which contains an implementation of chat
-room with some stubbed out functions. Copy the file to `lib/` in your project.
-Implement the functions.
+The `lab5` directory has a file `lib/lab5.ex` which contains an implementation of chat
+room with some stubbed out functions. Copy the file to `lib/` in your project and
+implement the functions.
 
   1. Implement the `leave/2` function.
 

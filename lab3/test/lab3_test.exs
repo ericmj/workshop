@@ -47,11 +47,21 @@ defmodule Lab3Test do
     end
   end
 
+  story "broadcast message", c
+    |> room,
+  verify do
+    room = join(c.room, "Joe")
+    room = join(room, "Robert")
+    room = broadcast_message(room, "Joe", "Hello World")
+    assert messages_to_user(room, "Joe") == ["Hello World"]
+    assert messages_to_user(room, "Robert") == ["Hello World"]
+  end
+
   story "messages to user", c
     |> room,
   verify do
     room = join(c.room, "Joe")
-    room = new_message(room, "Robert", "Joe", "Hello Joe")
+    room = send_message(room, "Robert", "Joe", "Hello Joe")
     assert messages_to_user(room, "Joe") == ["Hello Joe"]
     assert messages_to_user(room, "Robert") == []
   end
@@ -60,7 +70,7 @@ defmodule Lab3Test do
     |> room,
   verify do
     room = join(c.room, "Joe")
-    room = new_message(room, "Robert", "Joe", "Hello Joe")
+    room = send_message(room, "Robert", "Joe", "Hello Joe")
     assert messages_from_user(room, "Robert") == ["Hello Joe"]
     assert messages_from_user(room, "Joe") == []
   end

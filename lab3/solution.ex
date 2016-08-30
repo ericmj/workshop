@@ -29,7 +29,7 @@ defmodule Lab3 do
     end
   end
 
-  def new_message(room, from, to, message) do
+  def send_message(room, from, to, message) do
     case Map.fetch(room.members, to) do
       {:ok, messages} ->
         members = Map.put(room.members, to, [{from, message}|messages])
@@ -37,6 +37,13 @@ defmodule Lab3 do
       :error ->
         raise ArgumentError, message: "user not in room"
     end
+  end
+
+  def broadcast_message(room, from, message) do
+    message_tuple = {from, message}
+    Enum.into(room.members, %{}, fn {username, messages} ->
+      {username, [message_tuple|messages]}
+    end)
   end
 
   def messages_to_user(room, to) do

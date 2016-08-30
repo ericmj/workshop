@@ -21,4 +21,4 @@ TODO
 
 ### Solution ( no peeking :) )
 
-See `solution.ex` in the `lab45` branch.
+See `solution.ex` in the `lab8` directory.

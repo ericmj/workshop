@@ -19,13 +19,16 @@ implement the functions.
   1. Implement the `leave/2` function. Raise an error if the user leaving was
      not previously a member of the function.
 
-  2. Implement the `new_message/4` function. A message is a tuple of a username,
+  2. Implement the `send_message/4` function. A message is a tuple of a username,
      message contents pair.
 
-  3. Implement the function `messages_to_user/2`. Return all messages sent to the
+  3. Implement the `broadcast_message/4` function. It should broadcast a message
+     to all members of the chat.
+
+  4. Implement the function `messages_to_user/2`. Return all messages sent to the
      given user.
 
-  3. Implement the function `messages_from_user/2`. Return all messages authored
+  5. Implement the function `messages_from_user/2`. Return all messages authored
      by the given user. TIP: A map is enumerable and take a look at the `Enum.flat_map/2`
      function and `for` comprehensions.
 
@@ -49,6 +52,8 @@ API docs: http://elixir-lang.org/docs/stable/elixir/
   6. `Enum.flat_map/2` http://elixir-lang.org/docs/stable/elixir/Enum.html#flat_map/2
 
   7. `for` comprehensions http://elixir-lang.org/docs/stable/elixir/Kernel.SpecialForms.html#for/1
+
+  8. `Enum.into/3` http://elixir-lang.org/docs/stable/elixir/Enum.html#into/3
 
 
 ### Solution ( no peeking :) )
