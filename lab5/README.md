@@ -31,10 +31,6 @@ API docs: http://elixir-lang.org/docs/stable/elixir/
 
   2. `Agent` http://elixir-lang.org/docs/stable/elixir/Agent.html
 
-  3. GenServer http://elixir-lang.org/getting-started/mix-otp/genserver.html
-
-  4. `GenServer` http://elixir-lang.org/docs/stable/elixir/GenServer.html
-
 
 ### Solution ( no peeking :) )
 
