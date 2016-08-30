@@ -12,18 +12,6 @@ The `lab5` branch has a file `lib/lab5.ex` which contains an implementation of c
 room with some stubbed out functions. As usual, use that template to implement features
 in your chatroom until all of your tests pass.
 
-  1. Implement the `leave/2` function.
-
-  2. Implement the `members/1` function, it should return a list of members in the
-     room.
-
-  3. Implement the `new_message/3` function.
-
-  4. Implement the `messages_to_user/2` function.
-
-  5. Implement the `messages_from_user/2` function.
-
-
 ##### Advanced user problems (if you have more time)
 
 If there is enough time try to implement the process
