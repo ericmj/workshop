@@ -1,17 +1,15 @@
 defmodule Lab2.TestLibrary do
-  def new_room(c, _) do
+  import Map, only: [put: 3]
+
+  def message(c, _, _) do
     c
   end
 
-  def new_room(c, _, _) do
+  def member(c, _, _, _) do
     c
   end
 
-  def add_member(c, _, _) do
-    c
-  end
-
-  def add_message(c, _, _) do
+  def room(c, _) do
     c
   end
 end
