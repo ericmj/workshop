@@ -13,7 +13,7 @@
 ##### Verify your installations
 
 Verify your installation by calling the executables `git`, `erl` and `iex` in
-your shell. Your erlang installation needs to be on OTP 19 and Elixir on 1.3.x
+your shell. Your erlang installation needs to be on OTP 18 and Elixir on 1.3.x
 or higher. Check the version by running `iex`:
 
 ```
