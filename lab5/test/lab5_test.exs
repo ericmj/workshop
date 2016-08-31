@@ -47,10 +47,8 @@ defmodule Lab5Test do
   verify do
     join(c.room, "Joe")
     join(c.room, "Robert")
-    join(c.room, "Robert")
     send_messages(c.room, "Robert", "Wassup y'all?!?")
     assert messages_to_user(c.room, "Joe") == ["Wassup y'all?!?"]
-    assert messages_to_user(c.room, "Robert") == ["Wassup y'all?!?"]
     assert messages_to_user(c.room, "Robert") == ["Wassup y'all?!?"]
   end
 end
