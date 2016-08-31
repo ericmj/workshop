@@ -2,19 +2,18 @@
 
 ### Lab purpose
 
-Learn about processes and message passing. We'll be using a slightly different flow. 
-In this lab, we are testing concurrent features without demanding setup requirements, 
-so TrueStory doesn't make much sense. We'll be testing with plain old ExUnit tests. 
+Learn about processes and message passing. We'll be using a slightly different flow.
+In this lab, we are testing concurrent features without demanding setup requirements,
+so TrueStory doesn't make much sense. We'll be testing with plain old ExUnit tests.
 
 We'll also revise the flow a little bit, so you'll know how to create a project
-from scratch. 
+from scratch.
 
 ### Lab instructions
 
-Create a new mix project with `mix new lab4`.
-
-The `lab4` directory has a file `lib/lab4.ex` which contains some stubbed out
-functions. Copy the file to `lib/` in your project and implement the functions.
+The `lab4` directory has a file `lib/lab4.ex` which contains an implementation of chat
+room with some stubbed out functions. As usual, use that template to implement features
+in your chatroom until all of your tests pass.
 
   1. Create a process that just returns the first message it receives and then dies.
 
