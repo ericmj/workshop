@@ -30,7 +30,7 @@ defmodule Lab5 do
   end
 
   def members(pid, username) do
-    Agent.update(pid, fn room ->
+    Agent.get(pid, fn room ->
       Map.keys(room.members)
     end)
   end
