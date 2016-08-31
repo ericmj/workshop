@@ -22,7 +22,7 @@ defmodule Lab5 do
     end)
   end
 
-  def members(_pid, _username) do
+  def members(_pid) do
     raise "not implemented yet"
   end
 

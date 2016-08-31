@@ -29,7 +29,7 @@ defmodule Lab5 do
     end)
   end
 
-  def members(pid, username) do
+  def members(pid) do
     Agent.get(pid, fn room ->
       Map.keys(room.members)
     end)
