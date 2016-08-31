@@ -34,7 +34,7 @@ defmodule Lab6 do
 
   def send_messages(pid, from, message) do
     Agent.get(pid, fn room ->
-      Enum.each(room.members, fn {_name, %{pid: pid}} ->
+      Enum.map(room.members, fn {_name, %{pid: pid}} ->
         send(pid, {from, message})
       end)
     end)
