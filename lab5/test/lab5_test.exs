@@ -42,13 +42,13 @@ defmodule Lab5Test do
     assert messages_from_user(c.room, "Joe") == []
   end
 
-  story "send_messages", c
+  story "send messages to everyone but myself", c
     |> room,
   verify do
     join(c.room, "Joe")
     join(c.room, "Robert")
     send_messages(c.room, "Robert", "Wassup y'all?!?")
     assert messages_to_user(c.room, "Joe") == ["Wassup y'all?!?"]
-    assert messages_to_user(c.room, "Robert") == ["Wassup y'all?!?"]
+    assert messages_to_user(c.room, "Robert") == []
   end
 end
