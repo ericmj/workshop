@@ -61,10 +61,10 @@ TrueStory test library: https://github.com/ericmj/workshop/tree/master/lab2
 
 Implement a chat: https://github.com/ericmj/workshop/tree/master/lab3
 
-Processes: https://github.com/ericmj/workshop/master/tree/lab4
+Processes: https://github.com/ericmj/workshop/tree/master/lab4
 
-Process abstractions: https://github.com/ericmj/workshop/master/tree/lab5
+Process abstractions: https://github.com/ericmj/workshop/tree/master/lab5
 
-Chat with processes: https://github.com/ericmj/workshop/master/tree/lab6
+Chat with processes: https://github.com/ericmj/workshop/tree/master/lab6
 
-Test coverage: https://github.com/ericmj/workshop/master/tree/lab7
+Test coverage: https://github.com/ericmj/workshop/tree/master/lab7
