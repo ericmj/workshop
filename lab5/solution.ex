@@ -48,7 +48,11 @@ defmodule Lab5 do
 
     Agent.update(pid, fn room ->
       members = Enum.into(room.members, %{}, fn {username, messages} ->
-        {username, [message_tuple|messages]}
+        if username != from do
+          {username, [message_tuple|messages]}
+        else
+          {username, messages}
+        end
       end)
       %{room | members: members}
     end)
