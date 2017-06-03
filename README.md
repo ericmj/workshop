@@ -31,15 +31,15 @@ The repository for all labs is found at https://github.com/ericmj/workshop.
 
   1. git clone from your console
 
-        $ git clone git@github.com:ericmj/workshop.git
+        ```$ git clone git@github.com:ericmj/workshop.git```
 
   2. Enter the workshop directory
 
-        $ cd workshop
+        ```$ cd workshop```
 
   2. Enter the directory for the current lab named labN
 
-        $ cd labN
+        ```$ cd labN```
 
 
 ### Running tests
