@@ -1,63 +1,48 @@
 defmodule Lab1 do
-  def task2([first, _second, third | _rest]) do
+  def first_and_third([first, _second, third | _rest]) do
     {first, third}
   end
-
-  def task2(_) do
+  def first_and_third(_) do
     nil
   end
 
-  def task3([_first, _second, _third | rest]) do
+  def drop_three([_first, _second, _third | rest]) do
     rest
   end
-
-  def task3(_) do
+  def drop_three(_) do
     []
   end
 
-  def task4([head | tail]) do
+  def sum([head | tail]) do
     head + task4(tail)
   end
-
-  def task4([]) do
+  def sum([]) do
     0
   end
 
-  defmodule Advanced do
-    def task1([head|tail]) do
-      do_task1(tail, head)
-    end
+  def sum_fun() do
+    &sum/1
+  end
 
-    defp do_task1([head|tail], min) when head < min,
-      do: do_task1(tail, head)
-    defp do_task1([_head|tail], min),
-      do: do_task1(tail, min)
-    defp do_task1([], min),
-      do: min
+  def min([head|tail]) do
+    do_min(tail, head)
+  end
 
-    def task2([head|tail]) do
-      do_task2(tail, head, 1)
-    end
+  defp do_min([head|tail], min) when head < min,
+    do: do_min(tail, head)
+  defp do_min([_head|tail], min),
+    do: do_min(tail, min)
+  defp do_min([], min),
+    do: min
 
-    defp do_task2([head|tail], sum, count) do
-      do_task2(tail, head+sum, count+1)
-    end
+  def average([head|tail]) do
+    do_average(tail, head, 1)
+  end
 
-    defp do_task2([], sum, count) do
-      sum / count
-    end
-
-    def task3(list) do
-      do_task3(list, %{})
-    end
-
-    defp do_task3([head|tail], map) do
-      map = Map.update(map, head, 1, &(&1 + 1))
-      do_task3(tail, map)
-    end
-
-    defp do_task3([], map) do
-      map
-    end
+  defp do_average([head|tail], sum, count) do
+    do_average(tail, head+sum, count+1)
+  end
+  defp do_average([], sum, count) do
+    sum / count
   end
 end

@@ -12,12 +12,12 @@ matching.
 
 Run files in your shell with `$ elixir lib/lab1.ex`
 
-Run the tests in your shell with `$ mix test` 
+Run the tests in your shell with `$ mix test`
 
-You will notice that your tests fail. Your job is to implement the tasks so 
-that the tests pass. 
+You will notice that your tests fail. Your job is to implement the tasks so
+that the tests pass.
 
-As you build your functions, you can require each separate file in 
+As you build your functions, you can require each separate file in
 in Elixir's interactive shell `$ iex -r lib/lab1.ex`. Alternatively, you can
 load and start the full Mix project environment with `$ iex -S mix`.
 
@@ -33,17 +33,26 @@ README in the base directory for instructions on how to run tests.
 
   4. Add up all of the elements of a list.
 
+  5. Return an anonymous function that adds up all elements of a list.
+
+  6. Return the minimum value of a list with recursion.
+
+  7. Return the average value of a list with recursion.
+
+  8. Can you solve the above tasks by using higher-order functions and using
+     functions on the module `Enum` and `List` in Elixir's standard library?
+
 ##### For example
 
 ```elixir
 # lib/lab1.ex
 
 defmodule Lab1 do
-  def taskX([_first, second | _rest]) do
+  def second_element([_first, second | _rest]) do
     second
   end
 
-  def taskX(_) do
+  def second_element(_) do
     nil
   end
 end
@@ -51,41 +60,31 @@ end
 
 ```
 ~ λ iex -r lib/lab1.ex
-Erlang/OTP 19 [erts-8.0] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false]
+Erlang/OTP 20 [erts-9.0] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:10] [hipe] [kernel-poll:false]
 
-Interactive Elixir (1.3.2) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)> Lab1.taskX [:a, :b, :c]
+Interactive Elixir (1.5.1) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> Lab1.second_element [:a, :b, :c]
 :b
 ```
 
 
-##### Advanced user problems (if you have more time)
-
-  1. Return the minimum value of a list with recursion.
-
-  2. Return the average value of a list with recursion.
-
-  3. Count the number of occurrences of each atom in a list of atoms with recursion.
-
-  4. Can you solve the above tasks by using higher-order functions and using
-     functions on the module `Enum` and `List` in Elixir's standard library?
-
-
 ### Links
 
-Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+Getting started guide: https://elixir-lang.org/getting-started/introduction.html
 
-API docs: http://elixir-lang.org/docs/stable/elixir/
+API docs: https://hexdocs.pm/elixir/
 
-  1. Modules http://elixir-lang.org/getting-started/modules.html
+  1. Modules https://elixir-lang.org/getting-started/modules.html
 
-  2. Recursion http://elixir-lang.org/getting-started/recursion.html
+  2. Recursion https://elixir-lang.org/getting-started/recursion.html
 
-  3. Pipes http://elixir-lang.org/docs/stable/elixir/Kernel.html#%7C%3E/2
+  3. Pipes https://hexdocs.pm/elixir/Kernel.html#%7C%3E/2
 
-  4. `IO.inspect/1` http://elixir-lang.org/docs/master/elixir/IO.html#inspect/2
+  4. `IO.inspect/1` https://hexdocs.pm/elixir/IO.html#inspect/2
 
-  5. Map syntax http://elixir-lang.org/docs/master/elixir/Kernel.SpecialForms.html#%25%7B%7D/1
+  5. Anonymous functions https://elixir-lang.org/getting-started/basic-types.html#anonymous-functions
+
+  6. Function capturing https://elixir-lang.org/getting-started/modules-and-functions.html#function-capturing
 
 
 ### Solution ( no peeking :) )

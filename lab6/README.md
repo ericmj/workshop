@@ -15,13 +15,13 @@ implement the stubbed out functions until all of your tests pass.
 
 ## Links
 
-* Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+* Getting started guide: https://elixir-lang.org/getting-started/introduction.html
 
-* API docs: http://elixir-lang.org/docs/stable/elixir/
+* API docs: https://hexdocs.pm/elixir/
 
-* Agent http://elixir-lang.org/getting-started/mix-otp/agent.html
+* Agent https://elixir-lang.org/getting-started/mix-otp/agent.html
 
-* Agent http://elixir-lang.org/docs/stable/elixir/Agent.html
+* Agent https://hexdocs.pm/elixir/Agent.html
 
 ## Solution ( no peeking :) )
 

@@ -14,9 +14,9 @@ Write tests in `test/lab7_test.exs` to fully cover the code in `lib/lab7`.
 
 ### Links
 
-Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+Getting started guide: https://elixir-lang.org/getting-started/introduction.html
 
-API docs: http://elixir-lang.org/docs/stable/elixir/
+API docs: https://hexdocs.pm/elixir/
 
   1. ExCoveralls https://github.com/parroty/excoveralls
 

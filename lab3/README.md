@@ -28,25 +28,25 @@ new function, you will:
 
 ### Links
 
-Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+Getting started guide: https://elixir-lang.org/getting-started/introduction.html
 
-API docs: http://elixir-lang.org/docs/stable/elixir/
+API docs: https://hexdocs.pm/elixir/
 
-  1. Maps http://elixir-lang.org/getting-started/maps-and-dicts.html
+  1. Maps https://elixir-lang.org/getting-started/maps-and-dicts.html
 
-  2. Map syntax http://elixir-lang.org/docs/master/elixir/Kernel.SpecialForms.html#%{}/1
+  2. Map syntax https://hexdocs.pm/elixir/Kernel.SpecialForms.html#%{}/1
 
-  3. Structs http://elixir-lang.org/getting-started/struct.html
+  3. Structs https://elixir-lang.org/getting-started/struct.html
 
-  4. `raise/1` http://elixir-lang.org/docs/stable/elixir/Kernel.html#raise/1
+  4. `raise/1` https://hexdocs.pm/elixir/Kernel.html#raise/1
 
-  5. `assert_raise/1` http://elixir-lang.org/docs/stable/ex_unit/ExUnit.Assertions.html#assert_raise/2
+  5. `assert_raise/1` https://hexdocs.pm/ex_unit/ExUnit.Assertions.html#assert_raise/2
 
-  6. `Enum.flat_map/2` http://elixir-lang.org/docs/stable/elixir/Enum.html#flat_map/2
+  6. `Enum.flat_map/2` https://hexdocs.pm/elixir/Enum.html#flat_map/2
 
-  7. `for` comprehensions http://elixir-lang.org/docs/stable/elixir/Kernel.SpecialForms.html#for/1
+  7. `for` comprehensions https://hexdocs.pm/elixir/Kernel.SpecialForms.html#for/1
 
-  8. `Enum.into/3` http://elixir-lang.org/docs/stable/elixir/Enum.html#into/3
+  8. `Enum.into/3` https://hexdocs.pm/elixir/Enum.html#into/3
 
 
 ### Solution ( no peeking :) )

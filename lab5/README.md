@@ -21,13 +21,13 @@ GenServer?
 
 ### Links
 
-Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+Getting started guide: https://elixir-lang.org/getting-started/introduction.html
 
-API docs: http://elixir-lang.org/docs/stable/elixir/
+API docs: https://hexdocs.pm/elixir/
 
-  1. Agent http://elixir-lang.org/getting-started/mix-otp/agent.html
+  1. Agent https://elixir-lang.org/getting-started/mix-otp/agent.html
 
-  2. `Agent` http://elixir-lang.org/docs/stable/elixir/Agent.html
+  2. `Agent` https://hexdocs.pm/elixir/Agent.html
 
 
 ### Solution ( no peeking :) )

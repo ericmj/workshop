@@ -34,19 +34,19 @@ in your chatroom until all of your tests pass.
 
 ### Links
 
-Getting started guide: http://elixir-lang.org/getting-started/introduction.html
+Getting started guide: https://elixir-lang.org/getting-started/introduction.html
 
-API docs: http://elixir-lang.org/docs/stable/elixir/
+API docs: https://hexdocs.pm/elixir/
 
-  1. `spawn/1` http://elixir-lang.org/docs/stable/elixir/Kernel.html#spawn/1
+  1. `spawn/1` https://hexdocs.pm/elixir/Kernel.html#spawn/1
 
-  2. `send/2` http://elixir-lang.org/docs/stable/elixir/Kernel.html#send/2
+  2. `send/2` https://hexdocs.pm/elixir/Kernel.html#send/2
 
-  3. `receive/1` http://elixir-lang.org/docs/stable/elixir/Kernel.SpecialForms.html#receive/1
+  3. `receive/1` https://hexdocs.pm/elixir/Kernel.SpecialForms.html#receive/1
 
-  4. `Process` http://elixir-lang.org/docs/stable/elixir/Process.html
+  4. `Process` https://hexdocs.pm/elixir/Process.html
 
-  5. Processes http://elixir-lang.org/getting-started/processes.html
+  5. Processes https://elixir-lang.org/getting-started/processes.html
 
 
 ### Solution ( no peeking :) )
