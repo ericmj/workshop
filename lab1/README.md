@@ -75,13 +75,9 @@ API docs: https://hexdocs.pm/elixir/
 
   2. Recursion https://elixir-lang.org/getting-started/recursion.html
 
-  3. Pipes https://hexdocs.pm/elixir/Kernel.html#%7C%3E/2
+  3. Basic types https://elixir-lang.org/getting-started/basic-types.html
 
   4. `IO.inspect/1` https://hexdocs.pm/elixir/IO.html#inspect/2
-
-  5. Anonymous functions https://elixir-lang.org/getting-started/basic-types.html#anonymous-functions
-
-  6. Function capturing https://elixir-lang.org/getting-started/modules-and-functions.html#function-capturing
 
 
 ### Solution ( no peeking :) )

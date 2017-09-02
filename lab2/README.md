@@ -2,7 +2,17 @@
 
 ### Lab purpose
 
-This lab will introduce new data structures and using higher order functions with the `Enum` module.
+In the previous lab we learned the basics about running scripts and tests,
+pattern matching, and recursion.
+
+Pattern matching and recursion are powerful tools and Elixir developers often use
+these tools. For more common tasks the standard library provides you with higher-level
+building blocks.
+
+In this we lab will introduce new data types and new forms of pattern matching
+with binaries. We are also going to use using higher order functions with the
+`Enum` module to do transformation on lists and build composed transformation
+with pipes.
 
 
 ### Lab instructions
@@ -32,13 +42,13 @@ API docs: https://hexdocs.pm/elixir/
 
   1. Binaries and bitstrings https://elixir-lang.org/getting-started/binaries-strings-and-char-lists.html#binaries-and-bitstrings
 
-  2. Map syntax https://hexdocs.pm/elixir/Kernel.SpecialForms.html#%25%7B%7D/1
+  2. `Enum` module https://hexdocs.pm/elixir/Enum.html
 
-  3. `Keyword` module https://hexdocs.pm/elixir/Keyword.html
+  3. Pipes https://hexdocs.pm/elixir/Kernel.html#%7C%3E/2
 
-  4. `Map` module https://hexdocs.pm/elixir/Map.html
+  4. Anonymous functions https://elixir-lang.org/getting-started/basic-types.html#anonymous-functions
 
-  5. `Enum` module https://hexdocs.pm/elixir/Enum.html
+  5. Function capturing https://elixir-lang.org/getting-started/modules-and-functions.html#function-capturing
 
 
 ### Solution ( no peeking :) )
