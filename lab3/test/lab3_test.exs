@@ -1,76 +1,59 @@
 defmodule Lab3Test do
   use ExUnit.Case
   use TrueStory
-  import Lab3
   alias Lab3.Room
 
-  defp room(c) do
-    assign c, room: new()
+  setup do
+    %{room: Room.new()}
   end
 
-  story "new room", c
-    |> room,
-  verify do
-    assert %Room{} = c.room
+  test "new room", %{room: room} do
+    assert %Room{} = room
   end
 
-  story "join new member", c
-    |> room,
-  verify do
-    room = join(c.room, "Joe")
+  test "join new member", %{room: room} do
+    room = join(room, "Joe")
     assert has_member?(room, "Joe")
     refute has_member?(room, "Jose")
     assert members(room) == ["Joe"]
   end
 
-  story "join existing member", c
-    |> room,
-  verify do
-    room = join(c.room, "Joe")
+  test "join existing member", %{room: room} do
+    room = join(room, "Joe")
     assert_raise ArgumentError, fn ->
       join(room, "Joe")
     end
   end
 
-  story "leave existing member", c
-    |> room,
-  verify do
-    room = join(c.room, "Joe")
+  test "leave existing member" %{room: room} do
+    room = join(room, "Joe")
     room = leave(room, "Joe")
     refute has_member?(room, "Joe")
   end
 
-  story "leave non-existent member", c
-    |> room,
-  verify do
+  test "leave non-existent member" %{room: room} do
     assert_raise ArgumentError, fn ->
-      leave(c.room, "Joe")
+      leave(room, "Joe")
     end
   end
 
-  story "broadcast message", c
-    |> room,
-  verify do
-    room = join(c.room, "Joe")
+  test "broadcast message", %{room: room} do
+    room = join(room, "Joe")
     room = join(room, "Robert")
     room = send_messages(room, "Joe", "Hello World")
     assert messages_to_user(room, "Joe") == ["Hello World"]
     assert messages_to_user(room, "Robert") == ["Hello World"]
   end
 
-  story "messages to user", c
-    |> room,
-  verify do
-    room = join(c.room, "Joe")
+  test "messages to user", %{room: room} do
+    room = join(room, "Joe")
     room = send_message(room, "Robert", "Joe", "Hello Joe")
     assert messages_to_user(room, "Joe") == ["Hello Joe"]
     assert messages_to_user(room, "Robert") == []
   end
 
-  story "messages from user", c
-    |> room,
-  verify do
-    room = join(c.room, "Joe")
+  test "messages from user", %{room: room} do
+    room = join(room, "Joe")
     room = send_message(room, "Robert", "Joe", "Hello Joe")
     assert messages_from_user(room, "Robert") == ["Hello Joe"]
     assert messages_from_user(room, "Joe") == []

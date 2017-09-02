@@ -34,7 +34,7 @@ API docs: https://hexdocs.pm/elixir/
 
   1. Maps https://elixir-lang.org/getting-started/maps-and-dicts.html
 
-  2. Map syntax https://hexdocs.pm/elixir/Kernel.SpecialForms.html#%{}/1
+  2. Map syntax https://hexdocs.pm/elixir/Kernel.SpecialForms.html#%25%7B%7D/1
 
   3. Structs https://elixir-lang.org/getting-started/struct.html
 

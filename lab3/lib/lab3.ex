@@ -1,46 +1,46 @@
 defmodule Lab3 do
-  defmodule Room do
+  defmodule Chat do
     defstruct [:members]
   end
 
   def new do
-    %Room{members: %{}}
+    %Chat{members: %{}}
   end
 
-  def has_member?(room, username) do
-    Map.has_key?(room.members, username)
+  def has_member?(chat, username) do
+    Map.has_key?(chat.members, username)
   end
 
-  def join(room, username) do
-    if Map.has_key?(room.members, username) do
+  def join(chat, username) do
+    if Map.has_key?(chat.members, username) do
       raise ArgumentError, message: "username already taken"
     else
-      members = Map.put(room.members, username, [])
-      %{room | members: members}
+      members = Map.put(chat.members, username, [])
+      %{chat | members: members}
     end
   end
 
-  def members(_room) do
+  def members(_chat) do
     raise "not implemented yet"
   end
 
-  def leave(_room, _username) do
+  def leave(_chat, _username) do
     raise "not implemented yet"
   end
 
-  def send_message(_room, _from, _to, _message) do
+  def send_message(_chat, _from, _to, _message) do
     raise "not implemented yet"
   end
 
-  def send_messages(_room, _from, _message) do
+  def send_messages(_chat, _from, _message) do
     raise "not implemented yet"
   end
 
-  def messages_to_user(_room, _to) do
+  def messages_to_user(_chat, _to) do
     raise "not implemented yet"
   end
 
-  def messages_from_user(_room, _from) do
+  def messages_from_user(_chat, _from) do
     raise "not implemented yet"
   end
 end
