@@ -2,7 +2,22 @@
 
 ### Lab purpose
 
-In this lab, you will build an API to work with the data structures we explored for Lab 2. We will implement our chat room features with an API that works with data structures we set up for Lab 2. Each of our APIs will transform a chat room, building a new one. These are the functions you'll work on:
+In this lab, we will implement a chat room. Elixir is an immutable language, that means
+instead of having actions modifying an object we will have functions that makes
+a transformation on our chat room data structure and returns a new chat room
+leaving the original unchanged.
+
+The chat room data structure, expressed as an Elixir struct `%Lab3.Chat{}` in our
+code has a single field `:members`. The members field will hold a map where the
+key is the user name and the value is the messages to that user, `%{username => messages}`.
+The messages is a list of tuples `{from, text}` where `from` is the user name of
+sender and `text` is the contents of the message.
+
+As you can see the chat room struct we are working with is nested with multiple levels of data
+structures, this is common in functional programming, and in this lab we will learn
+how to work with such data structures.
+
+Below are the functions for the chat room we will implement in this lab.
 
   * `leave()` will remove a member from the chatroom
   * `members()` will return the member names in the chatroom
@@ -15,15 +30,18 @@ If you have more time, you can implement two other functions, which filter throu
 
 ### Lab instructions
 
-Clone `lab3` from git if you haven't already done so.
-
 The `lab3` directory has a file `lib/lab3.ex` which contains an implementation of chat
 room with some stubbed out functions. These are the functions you'll implement. For each
 new function, you will:
 
-  1. run `mix test`. You will see the failures for each of your unimplemented features.
+  1. Run `mix test`. You will see the failures for each of your unimplemented features.
 
   2. Implement the missing feature, and iterate on it until the test passes.
+
+In this lab we will be using the `Map` and `Enum` modules, so take a quick look through
+the documentation for those modules before you get started so you know roughly what
+the provide. If you get stuck anywhere I would also recommend going over the functions
+in those modules to see if there is function that will help you solve your problem.
 
 
 ### Links
@@ -47,6 +65,8 @@ API docs: https://hexdocs.pm/elixir/
   7. `for` comprehensions https://hexdocs.pm/elixir/Kernel.SpecialForms.html#for/1
 
   8. `Enum.into/3` https://hexdocs.pm/elixir/Enum.html#into/3
+
+  9. `Map` module https://hexdocs.pm/elixir/Map.html
 
 
 ### Solution ( no peeking :) )
