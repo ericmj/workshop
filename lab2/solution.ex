@@ -6,17 +6,6 @@ defmodule Lab2 do
     [byte | binary_to_list(rest)]
   end
 
-  def list_to_binary(list) do
-    do_list_to_binary(list, <<>>)
-  end
-
-  defp do_list_to_binary([], acc) do
-    acc
-  end
-  defp do_list_to_binary([byte | rest], acc) do
-    do_list_to_binary(rest, <<acc::binary, byte>>)
-  end
-
   def num_bits(bitstring) do
     do_num_bits(bitstring, 0)
   end
@@ -32,27 +21,23 @@ defmodule Lab2 do
     Enum.map(list, &(&1 + &1))
   end
 
-  def keyword_to_map(keyword) do
-    Enum.reduce(keyword, %{}, fn {key, value}, map ->
-      Map.put(map, key, value)
-    end)
-  end
-
   def odds_and_evens(list) do
     odds = Enum.reject(list, &(rem(&1, 2) == 0))
     evens = Enum.filter(list, &(rem(&1, 2) == 0))
     {odds, evens}
   end
 
-  def count_occurances(list) do
-    do_count_occurances(list, %{})
+  def three_largest(list) do
+    list
+    |> Enum.sort()
+    |> Enum.take(3)
+    |> Enum.sort(&>=/2)
   end
 
-  defp do_count_occurances([head|tail], map) do
-    map = Map.update(map, head, 1, &(&1 + 1))
-    do_count_occurances(tail, map)
-  end
-  defp do_count_occurances([], map) do
-    map
+  def capitalize_all(string) do
+    string
+    |> String.split(" ")
+    |> Enum.map(&String.capitalize/1)
+    |> Enum.join(" ")
   end
 end
