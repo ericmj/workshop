@@ -19,20 +19,14 @@ defmodule Lab1Test do
     assert Lab1.sum([5, 6, 7]) == 18
   end
 
-  test "task 4: sum_fun" do
-    assert Lab1.sum_fun().([]) == 0
-    assert Lab1.sum_fun().([5]) == 5
-    assert Lab1.sum_fun().([5, 6, 7]) == 18
-  end
-
-  test "task 5: min" do
+  test "task 4: min" do
     assert Lab1.min([5]) == 5
     assert Lab1.min([1, 2, 3]) == 1
     assert Lab1.min([3, 2, 1]) == 1
     assert Lab1.min([2, 1, 3]) == 1
   end
 
-  test "task 6: average" do
+  test "task 5: average" do
     assert Lab1.average([5]) == 5
     assert Lab1.average([5, 5]) == 5
     assert Lab1.average([5, 6, 7]) == 6

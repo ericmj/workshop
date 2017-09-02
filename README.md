@@ -63,4 +63,6 @@ The individual labs can be found at the following URLs:
 
 *Lab 4* - Processes: https://github.com/ericmj/workshop/tree/master/lab4
 
-*Lab 5* - Chat with processes: https://github.com/ericmj/workshop/tree/master/lab6
+*Lab 5* - Chat with processes: https://github.com/ericmj/workshop/tree/master/lab5
+
+*Lab 6* - Chat with OTP: https://github.com/ericmj/workshop/tree/master/lab6

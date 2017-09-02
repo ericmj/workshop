@@ -20,10 +20,6 @@ defmodule Lab1 do
     0
   end
 
-  def sum_fun() do
-    &sum/1
-  end
-
   def min([head|tail]) do
     do_min(tail, head)
   end

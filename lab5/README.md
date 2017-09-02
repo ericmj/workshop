@@ -8,7 +8,7 @@ we added to each member.
 
 ## Lab instructions
 
-As usual, in the directory `lab6`, you'll see a file called `lib/lab6.ex` with
+As usual, in the directory `lab5`, you'll see a file called `lib/lab5.ex` with
 several stubbed out functions. You can run your tests using `mix test`, and
 implement the stubbed out functions until all of your tests pass.
 

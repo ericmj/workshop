@@ -2,11 +2,10 @@
 
 ### Lab purpose
 
-This lab should teach you how to write and run simple Elixir scripts. You will
+This lab will teach you how to write and run simple Elixir scripts. You will
 learn how to write modules and functions. Additionally you will learn some
 functional programming concepts such as recursion, list handling and pattern
 matching.
-
 
 ### Lab instructions
 
@@ -33,13 +32,11 @@ README in the base directory for instructions on how to run tests.
 
   4. Add up all of the elements of a list.
 
-  5. Return an anonymous function that adds up all elements of a list.
+  5. Return the minimum value of a list with recursion.
 
-  6. Return the minimum value of a list with recursion.
+  6. Return the average value of a list with recursion.
 
-  7. Return the average value of a list with recursion.
-
-  8. Can you solve the above tasks by using higher-order functions and using
+  7. Can you solve the above tasks by using higher-order functions and using
      functions on the module `Enum` and `List` in Elixir's standard library?
 
 ##### For example
