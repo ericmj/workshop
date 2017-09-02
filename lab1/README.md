@@ -36,9 +36,6 @@ README in the base directory for instructions on how to run tests.
 
   6. Return the average value of a list with recursion.
 
-  7. Can you solve the above tasks by using higher-order functions and using
-     functions on the module `Enum` and `List` in Elixir's standard library?
-
 ##### For example
 
 ```elixir

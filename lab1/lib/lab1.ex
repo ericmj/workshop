@@ -1,21 +1,13 @@
 defmodule Lab1 do
-  def first_and_third() do
+  def first_and_third(_list) do
     raise "not implemented yet"
   end
 
-  def drop_three() do
+  def drop_three(_list) do
     raise "not implemented yet"
   end
 
-  def sum() do
-    raise "not implemented yet"
-  end
-
-  def sum() do
-    raise "not implemented yet"
-  end
-
-  def sum_fun() do
+  def sum(_list) do
     raise "not implemented yet"
   end
 
