@@ -66,5 +66,3 @@ Processes: https://github.com/ericmj/workshop/tree/master/lab4
 Process abstractions: https://github.com/ericmj/workshop/tree/master/lab5
 
 Chat with processes: https://github.com/ericmj/workshop/tree/master/lab6
-
-Test coverage: https://github.com/ericmj/workshop/tree/master/lab7

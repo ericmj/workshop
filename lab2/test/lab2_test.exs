@@ -43,9 +43,9 @@ defmodule Lab2Test do
 
   test "task 7: count_occurances" do
     assert Lab2.count_occurances([]) == %{}
-    assert Lab2.count_occurances([1]) == %{1 => 1}
-    assert Lab2.count_occurances([1, 2, 3]) == %{1 => 1, 2 => 1, 3 => 1}
-    assert Lab2.count_occurances([1, 2, 3, 1, 2]) == %{1 => 2, 2 => 2, 3 => 1}
-    assert Lab2.count_occurances([1, 1, 1, 1]) == %{1 => 4}
+    assert Lab2.count_occurances([:foo]) == %{:foo => 1}
+    assert Lab2.count_occurances([:foo, :bar, :baz]) == %{:foo => 1, :bar => 1, :baz => 1}
+    assert Lab2.count_occurances([:foo, :bar, :baz, :foo, :bar]) == %{:foo => 2, :bar => 2, :baz => 1}
+    assert Lab2.count_occurances([:foo, :foo, :foo, :foo]) == %{:foo => 4}
   end
 end
