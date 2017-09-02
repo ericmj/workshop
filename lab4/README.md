@@ -2,8 +2,8 @@
 
 ### Lab purpose
 
-Learn about processes and message passing. You'll have some simple exercises 
-that make use of basic Elixir concurrency using primitives. 
+Learn about processes and message passing. You'll have some simple exercises
+that make use of basic Elixir concurrency using primitives.
 
 ### Lab instructions
 

@@ -55,14 +55,12 @@ The repository for all labs is found at https://github.com/ericmj/workshop.
 
 The individual labs can be found at the following URLs:
 
-Elixir basics: https://github.com/ericmj/workshop/tree/master/lab1
+*Lab 1* - Elixir basics: https://github.com/ericmj/workshop/tree/master/lab1
 
-Data structures and higher order functions: https://github.com/ericmj/workshop/tree/master/lab2
+*Lab 2* - Data structures and higher order functions: https://github.com/ericmj/workshop/tree/master/lab2
 
-Implement a chat: https://github.com/ericmj/workshop/tree/master/lab3
+*Lab 3* - Implement a chat: https://github.com/ericmj/workshop/tree/master/lab3
 
-Processes: https://github.com/ericmj/workshop/tree/master/lab4
+*Lab 4* - Processes: https://github.com/ericmj/workshop/tree/master/lab4
 
-Process abstractions: https://github.com/ericmj/workshop/tree/master/lab5
-
-Chat with processes: https://github.com/ericmj/workshop/tree/master/lab6
+*Lab 5* - Chat with processes: https://github.com/ericmj/workshop/tree/master/lab6

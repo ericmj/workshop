@@ -1,4 +1,4 @@
-defmodule Lab5 do
+defmodule Lab6 do
   defmodule Room do
     defstruct [:members]
   end
@@ -9,15 +9,11 @@ defmodule Lab5 do
     end)
   end
 
-  def has_member?(pid, username) do
-    Agent.get(pid, fn room ->
-      Map.has_key?(room.members, username)
-    end)
-  end
-
   def join(pid, username) do
+    from = self()
     Agent.update(pid, fn room ->
-      members = Map.put(room.members, username, [])
+      member = %{name: username, pid: from}
+      members = Map.put(room.members, username, member)
       %{room | members: members}
     end)
   end
@@ -29,46 +25,17 @@ defmodule Lab5 do
     end)
   end
 
-  def members(pid) do
-    Agent.get(pid, fn room ->
-      Map.keys(room.members)
-    end)
-  end
-
   def send_message(pid, from, to, message) do
-    Agent.update(pid, fn room ->
-      messages = Map.fetch!(room.members, to)
-      members = Map.put(room.members, to, [{from, message}|messages])
-      %{room | members: members}
+    Agent.get(pid, fn room ->
+      %{pid: pid} = Map.fetch!(room.members, to)
+      send(pid, {from, message})
     end)
   end
 
   def send_messages(pid, from, message) do
-    message_tuple = {from, message}
-
-    Agent.update(pid, fn room ->
-      members = Enum.into(room.members, %{}, fn {username, messages} ->
-        if username != from do
-          {username, [message_tuple|messages]}
-        else
-          {username, messages}
-        end
-      end)
-      %{room | members: members}
-    end)
-  end
-
-  def messages_to_user(pid, to) do
     Agent.get(pid, fn room ->
-      messages = Map.get(room.members, to, [])
-      Enum.map(messages, fn {_from, contents} -> contents end)
-    end)
-  end
-
-  def messages_from_user(pid, from) do
-    Agent.get(pid, fn room ->
-      Enum.flat_map(room.members, fn {_to, messages} ->
-        for {^from, message} <- messages, do: message
+      Enum.map(room.members, fn {_name, %{pid: pid}} ->
+        send(pid, {from, message})
       end)
     end)
   end
