@@ -3,7 +3,7 @@ defmodule Lab3 do
     defstruct [:members]
   end
 
-  def new do
+  def new() do
     %Chat{members: %{}}
   end
 

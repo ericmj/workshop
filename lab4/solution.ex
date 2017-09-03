@@ -1,33 +1,40 @@
 defmodule Lab4 do
-  def task1(message) do
-    pid = spawn(fn ->
+  def print_first_message() do
+    spawn(fn ->
       receive do
-        {pid, string} -> send pid, string
+        message -> IO.puts(message)
       end
     end)
+  end
 
-    send pid, {self(), message}
+  def print_all_messages() do
+    spawn(&print_all_messages_recursive/0)
+  end
+
+  defp print_all_messages_recursive() do
     receive do
-      string -> string
+      message ->
+        IO.puts(message)
+        print_all_messages_recursive()
     end
   end
 
-  def task2 do
+  def sum() do
     spawn(fn ->
       receive do
-        {:sum, pid, list} -> send pid, Enum.sum(list)
+        {:sum, pid, list} -> send(pid, Enum.sum(list))
       end
     end)
   end
 
-  def task3(list_of_lists) do
-    current_pid = self
+  def sum_all(list_of_lists) do
+    current_pid = self()
 
     refs =
       Enum.map(list_of_lists, fn list ->
         ref = make_ref()
         spawn(fn ->
-          send current_pid, {ref, Enum.sum(list)}
+          send(current_pid, {ref, Enum.sum(list)})
         end)
         ref
       end)
@@ -37,28 +44,5 @@ defmodule Lab4 do
         {^ref, result} -> result
       end
     end)
-  end
-
-  defmodule Advanced do
-    def task1(list) do
-      task = Task.async(fn ->
-        Enum.sum(list)
-      end)
-
-      Task.await(task)
-    end
-
-    def task2(list_of_lists) do
-      tasks =
-        Enum.map(list_of_lists, fn list ->
-          Task.async(fn ->
-            Enum.sum(list)
-          end)
-        end)
-
-      Enum.map(tasks, fn task ->
-        Task.await(task)
-      end)
-    end
   end
 end

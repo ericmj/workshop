@@ -1,7 +1,7 @@
 defmodule Lab4Test do
   use ExUnit.Case
-  import Lab4
   alias Lab4.Advanced
+  import ExUnit.CaptureIO
 
   defp receive_once do
     receive do
@@ -9,33 +9,51 @@ defmodule Lab4Test do
     end
   end
 
-  test "task1" do
-    assert task1("Hello") == "Hello"
-    assert task1("Bye") == "Bye"
+  test "task 1: print_first_message" do
+    pid = print_first_message()
+
+    assert capture_io(:stdout, fn ->
+      send(pid, "foo")
+      Process.sleep(100)
+    end) == "foo"
+
+    assert capture_io(:stdout, fn ->
+      send(pid, "foo")
+      Process.sleep(100)
+    end) == ""
+
+    refure Process.alive?(pid)
   end
 
-  test "task2" do
-    pid = task2()
-    send pid, {:sum, self(), 1..2}
+  test "task 2: print_all_messages" do
+    pid = print_all_messages()
+
+    assert capture_io(:stdout, fn ->
+      send(pid, "foo")
+      Process.sleep(100)
+    end) == "foo"
+
+    assert capture_io(:stdout, fn ->
+      send(pid, "bar")
+      Process.sleep(100)
+    end) == "bar"
+
+    assert Process.alive?(pid)
+  end
+
+  test "task 3: sum" do
+    pid = sum()
+    send(pid, {:sum, self(), 1..2})
     assert receive_once() == 3
 
-    pid = task2()
-    send pid, {:sum, self(), 1..10}
+    pid = sum()
+    send(pid, {:sum, self(), 1..10})
     assert receive_once() == 55
   end
 
-  test "task3" do
-    assert task3([1..2]) == [3]
-    assert task3([1..2, 3..4, 5..6]) == [3, 7, 11]
+  test "task 4: sum_all" do
+    assert sum_all([1..2]) == [3]
+    assert sum_all([1..2, 3..4, 5..6]) == [3, 7, 11]
   end
-
-  test "advanced task1" do
-    assert Advanced.task1(1..2) == 3
-    assert Advanced.task1(1..10) == 55
-  end
-
-  test "advanced task2" do
-    assert Advanced.task2([1..2]) == [3]
-    assert Advanced.task2([1..2, 3..4, 5..6]) == [3, 7, 11]
   end
 end
