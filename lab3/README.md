@@ -17,17 +17,6 @@ As you can see the chat room struct we are working with is nested with multiple 
 structures, this is common in functional programming, and in this lab we will learn
 how to work with such data structures.
 
-Below are the functions for the chat room we will implement in this lab.
-
-  * `leave()` will remove a member from the chatroom
-  * `members()` will return the member names in the chatroom
-  * `send_message()` will add a new message to the message list for a user
-  * `send_messages()` will add a new message to the message list for all users
-
-If you have more time, you can implement two other functions, which filter through messages in the chatroom.
-
-  * `messages_from_user()` and `messages_to_user()` will list all of the messages from or to a given user.
-
 ### Lab instructions
 
 The `lab3` directory has a file `lib/lab3.ex` which contains an implementation of chat
@@ -37,6 +26,20 @@ new function, you will:
   1. Run `mix test`. You will see the failures for each of your unimplemented features.
 
   2. Implement the missing feature, and iterate on it until the test passes.
+
+Below are the functions for the chat room we will implement in this lab.
+
+  * `leave()` will remove a member from the chatroom
+  * `members()` will return the member names in the chatroom
+  * `send_message()` will add a new message to the message list for a user
+  * `send_messages()` will add a new message to the message list for all users
+
+When joining the function will raise if the user has already joined, the `leave`
+function should do the same if a user tries to leave that hasn't already joined.
+
+If you have more time, you can implement two other functions, which filter through messages in the chatroom.
+
+  * `messages_from_user()` and `messages_to_user()` will list all of the messages from or to a given user.
 
 In this lab we will be using the `Map` and `Enum` modules, so take a quick look through
 the documentation for those modules before you get started so you know roughly what
