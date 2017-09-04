@@ -26,4 +26,8 @@ defmodule Lab2 do
   def capitalize_all(_string) do
     raise "not implemented yet"
   end
+
+  def second_longest(_string) do
+    raise "not implemented yet"
+  end
 end

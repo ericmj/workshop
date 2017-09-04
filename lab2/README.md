@@ -29,7 +29,9 @@ Like the last lab implement the stubbed out functions in `lib/lab2.ex` and run t
 
   5. Return the three largest numbers from a list, in the order of the smallest number first
 
-  6. Capitalize every word in a string, tip: use the `String.split/2` and `Enum.join/2` functions. Try to write it as a single pipeline
+  6. Capitalize every word in a string, each word is separate by a space. Tip: use the `String.split/2` and `Enum.join/2` functions. Try to write it as a single pipeline
+
+  7. Return the second longest word in string, each word is separate by a space. If the list is too short return `nil`. Tip: use `Enum.sort_by/3` to sort the list and `elem/2` to fetch a value from a tuple. Again, try to write it as a single pipeline.
 
 ### Links
 

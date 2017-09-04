@@ -42,4 +42,12 @@ defmodule Lab2Test do
     assert Lab2.capitalize_all("FOO BAR") == "Foo Bar"
     assert Lab2.capitalize_all("elixirconf US  2017") == "Elixirconf Us  2017"
   end
+
+  test "task 7: second_longest" do
+    assert Lab2.second_longest("fo bar") == "fo"
+    assert Lab2.second_longest("foo ba") == "ba"
+    assert Lab2.second_longest("foo ba") == "ba"
+    assert Lab2.second_longest("welcome to elixirconf 2017") == "welcome"
+    assert Lab2.second_longest("") == nil
+  end
 end

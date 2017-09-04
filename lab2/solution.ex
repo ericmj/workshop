@@ -40,4 +40,13 @@ defmodule Lab2 do
     |> Enum.map(&String.capitalize/1)
     |> Enum.join(" ")
   end
+
+  def second_longest(string) do
+    string
+    |> String.split(" ")
+    |> Enum.map(&{&1, String.length(&1)})
+    |> Enum.sort_by(fn {_string, length} -> length end, &>=/2)
+    |> Enum.at(1, {nil, 0})
+    |> elem(0)
+  end
 end
