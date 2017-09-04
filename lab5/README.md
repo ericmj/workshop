@@ -2,10 +2,9 @@
 
 ## Lab purpose
 
-In this lab we will build the chat room from lab 3 into a process with the help
-of what we learned in lab 4. Instead of storing the messages inside the chat room
-we will use a push/broadcast design where the messages are sent directly to the
-clients which are their own processes.
+In this lab we will build the chat room from lab 3 using concurrency instead of functions. 
+We'll use the concepts we learned in lab 4. Instead of storing the messages inside `%Chat{}`, 
+we will send messages directly to processes representing users. 
 
 The main process, the one we will be working on, holds the state of the chat room.
 Again it will be a `%Lab5.Chat{}` struct with a single field `:members`. The members
