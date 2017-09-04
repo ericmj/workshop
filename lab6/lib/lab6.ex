@@ -17,19 +17,19 @@ defmodule Lab6 do
     GenServer.call(server, {:join, username})
   end
 
-  def members(_chat) do
+  def members(_server) do
     raise "not implemented yet"
   end
 
-  def leave(_chat, _username) do
+  def leave(_server, _username) do
     raise "not implemented yet"
   end
 
-  def send_message(_chat, _from, _to, _message) do
+  def send_message(_server, _from, _to, _message) do
     raise "not implemented yet"
   end
 
-  def send_messages(_chat, _from, _message) do
+  def send_messages(_server, _from, _message) do
     raise "not implemented yet"
   end
 

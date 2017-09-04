@@ -1,74 +1,90 @@
-defmodule Lab6Test do
-  use ExUnit.Case
-  alias Lab6
-
-  setup do
-    %{room: Lab6.new()}
+defmodule Lab6 do
+  defmodule Chat do
+    defstruct [:members]
   end
 
-  test "join new member", %{room: room} do
-    assert :ok = Lab6.join(room, "Joe")
-    assert Lab6.has_member?(room, "Joe")
-    refute Lab6.has_member?(room, "Jose")
-    assert Lab6.members(room) == ["Joe"]
+  use GenServer
+
+  # PUBLIC API
+
+  def new() do
+    GenServer.start_link(__MODULE__, [])
   end
 
-  test "join existing member", %{room: room} do
-    assert :ok =  Lab6.join(room, "Joe")
-    assert {:error, _} = Lab6.join(room, "Joe")
+  def has_member?(server, username) do
+    GenServer.call(server, {:has_member?, username})
   end
 
-  test "leave existing member", %{room: room} do
-    assert :ok = Lab6.join(room, "Joe")
-    assert :ok = Lab6.leave(room, "Joe")
-    refute Lab6.has_member?(room, "Joe")
+  def join(server, username) do
+    GenServer.call(server, {:join, username})
   end
 
-  test "leave non-existent member", %{room: room} do
-    assert {:error, _} = Lab6.leave(room, "Joe")
+  def members(server) do
+    GenServer.call(server, :members)
   end
 
-  test "push message", %{room: room} do
-    spawn_link(fn ->
-      assert :ok = Lab6.join(room, "Joe")
-      # Wait until Robert joined
-      Process.sleep(100)
-      assert :ok = Lab6.send_message(room, "Joe", "Robert", "Hello World")
-      # Don't send message to yourself
-      refute_receive {:message, "Joe", "Hello World"}
-    end)
-
-    spawn_link(fn ->
-      assert :ok = Lab6.join(room, "Robert")
-      # Don't send message to yourself
-      assert_receive {:message, "Joe", "Hello World"}
-      # Only receive one message
-      refute_receive {:message, "Robert", "Hello World"}
-    end)
+  def leave(server, username) do
+    GenServer.call(server, {:leave, username})
   end
 
-  test "broadcast message", %{room: room} do
-    spawn_link(fn ->
-      assert :ok = Lab6.join(room, "Joe")
-      # Wait until Robert joined
-      Process.sleep(100)
-      assert :ok = Lab6.send_message(room, "Joe", "Robert", "Hello World")
-      # Don't send message to yourself
-      refute_receive {:message, "Robert", "Hello World"}
-    end)
+  def send_message(server, from, to, message) do
+    GenServer.call(server, {:send_message, from, to, message})
+  end
 
-    spawn_link(fn ->
-      assert :ok = Lab6.join(room, "Robert")
-      assert_receive {:message, "Joe", "Hello World"}
-      # Only receive one message
-      refute_receive {:message, "Robert", "Hello World"}
-    end)
+  def send_messages(server, from, message) do
+    GenServer.call(server, {:send_messages, from, message})
+  end
 
-    spawn_link(fn ->
-      assert :ok = Lab6.join(room, "Mike")
-      assert_receive {:message, "Joe", "Hello World"}
-      # Only receive one message
-      refute_receive {:message, "Robert", "Hello World"}
-    end)
+  # GENSERVER CALLBACKS
+
+  def init([]) do
+    {:ok, %Chat{members: %{}}}
+  end
+
+  def handle_call({:has_member?, username}, _from, chat) do
+    {:reply, Map.has_key?(chat.members, username), chat}
+  end
+
+  def handle_call({:join, username}, {pid, _tag}, chat) do
+    if Map.has_key?(chat.members, username) do
+      {:reply, {:error, "username already taken"}, chat}
+    else
+      members = Map.put(chat.members, username, pid)
+      chat = %{chat | members: members}
+      {:reply, :ok, chat}
+    end
+  end
+
+  def handle_call(:members, _from, chat) do
+    members = Map.keys(chat.members)
+    {:reply, members, chat}
+  end
+
+  def handle_call({:leave, username}, _from, chat) do
+    if Map.has_key?(chat.members, username) do
+      members = Map.delete(chat.members, username)
+      chat = %{chat | members: members}
+      {:reply, :ok, chat}
+    else
+      {:reply, {:error, "user not in chat"}, chat}
+    end
+  end
+
+  def handle_call({:send_message, to, from, message}, _from, chat) do
+    case Map.fetch(chat.members, to) do
+      {:ok, to} ->
+        send(to, {:message, from, message})
+        {:reply, :ok, chat}
+      :error ->
+        {:reply, {:error, "user not in chat"}, chat}
+    end
+  end
+
+  def handle_call({:send_messages, from, message}, _from, chat) do
+    chat.members
+    |> Map.delete(from)
+    |> Map.values()
+    |> Enum.each(&send(&1, {:message, from, message}))
+    {:reply, :ok, chat}
   end
 end
