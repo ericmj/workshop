@@ -53,4 +53,4 @@ In this section, we'll cover OTP concepts including
 * Supervisors
 
 ## Breaks and Lunch
-Depending on class speed
+Customized per class
