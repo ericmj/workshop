@@ -1,0 +1,55 @@
+defmodule Lab6 do
+  defmodule Chat do
+    defstruct [:members]
+  end
+
+  # PUBLIC API
+
+  def new() do
+    GenServer.start_link(__MODULE__, [])
+  end
+
+  def has_member?(server, username) do
+    GenServer.call(server, {:has_member?, username})
+  end
+
+  def join(server, username) do
+    GenServer.call(server, {:join, username})
+  end
+
+  def members(_chat) do
+    raise "not implemented yet"
+  end
+
+  def leave(_chat, _username) do
+    raise "not implemented yet"
+  end
+
+  def send_message(_chat, _from, _to, _message) do
+    raise "not implemented yet"
+  end
+
+  def send_messages(_chat, _from, _message) do
+    raise "not implemented yet"
+  end
+
+  # GENSERVER CALLBACKS
+
+  def init([]) do
+    {:ok, %Chat{members: %{}}}
+  end
+
+  def handle_call({:has_member?, username}, _from, chat) do
+    {:reply, Map.has_key?(chat.members, username), chat}
+  end
+
+  def handle_call({:join, username}, _from, chat) do
+    if Map.has_key?(chat.members, username) do
+      {:reply, {:error, "username already taken"}, chat}
+    else
+      members = Map.put(chat.members, username, [])
+      chat = %{chat | members: members}
+      {:reply, :ok, chat}
+    end
+  end
+end
