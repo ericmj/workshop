@@ -21,7 +21,7 @@ defmodule Lab5 do
           loop(chat)
         else
           send(pid, :ok)
-          members = Map.put(chat.members, username, [])
+          members = Map.put(chat.members, username, pid)
           loop(%{chat | members: members})
         end
 
@@ -36,7 +36,7 @@ defmodule Lab5 do
         end
 
       {:members, pid} ->
-        members = Enum.map(chat.members, fn {username, _pid} -> username end)
+        members = Map.keys(chat.members)
         send(pid, members)
         loop(chat)
 
@@ -53,7 +53,8 @@ defmodule Lab5 do
 
       {:broadcast_message, pid, from, message} ->
         chat.members
-        |> Enum.map(fn {_username, to} -> to end)
+        |> Map.delete(from)
+        |> Map.values()
         |> Enum.each(&send(&1, {:message, from, message}))
         send(pid, :ok)
         loop(chat)
