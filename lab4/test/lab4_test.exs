@@ -13,11 +13,13 @@ defmodule Lab4Test do
 
     assert capture_io(:stderr, fn ->
       send(pid, "foo")
+      # Wait until output has been captured
       Process.sleep(100)
     end) == "foo"
 
     assert capture_io(:stderr, fn ->
       send(pid, "foo")
+      # Wait until output has been captured
       Process.sleep(100)
     end) == ""
 
@@ -29,11 +31,13 @@ defmodule Lab4Test do
 
     assert capture_io(:stderr, fn ->
       send(pid, "foo")
+      # Wait until output has been captured
       Process.sleep(100)
     end) == "foo"
 
     assert capture_io(:stderr, fn ->
       send(pid, "bar")
+      # Wait until output has been captured
       Process.sleep(100)
     end) == "bar"
 
