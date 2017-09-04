@@ -41,16 +41,19 @@ Elixir is a concurrent language. Use basic concurrency constructs including
 * receive
 * spawn
 
-## Section 5: Basic concurrency abstractions
-Elixir supports some higher level abstractions for concurrency. We'll cover the simplest, including
-* Tasks
-* Agents
+## Section 5: Looping construct with send and receive
+Elixir allows ture message passsing between processes. We'll build a primitive cache
+that:
+* Stores state
+* Uses recursive looping
+* Matches receive tuples
 
 ## Section 6: OTP
 Elixir uses OTP, a concurrency abstraction that is in the center of most advanced Elixir programming.
 In this section, we'll cover OTP concepts including
-* Call and Cast
-* Supervisors
+* GenServer
+* Call 
+* Cast
 
 ## Breaks and Lunch
 Customized per class
