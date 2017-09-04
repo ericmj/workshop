@@ -2,22 +2,12 @@
 
 ## Lab purpose
 
-In this lab we will build the chat room from lab 3 using concurrency instead of functions. 
-We'll use the concepts we learned in lab 4. Instead of storing the messages inside `%Chat{}`, 
-we will send messages directly to processes representing users. 
+In this lab we will build the chat room we prototyped in lab 3. Instead of simple funcitons, 
+we'll use concurrency using the concepts we learned in lab 4. 
 
-The main process, the one we will be working on, holds the state of the chat room.
-Again it will be a `%Lab5.Chat{}` struct with a single field `:members`. The members
-field will hold a map where the key is the user name and the value is the `pid`
-of the user process, `%{username => pid}`.
-
-This is how chats are usually modeled in Elixir:
-* you have a process for each user
-* the process manages inbound messages, perhaps from a socket
-* you have a single process that orchestrates the message passing between users
-
-In this lab, we'll shift the implementation from simple functions to the above
-processes. Instead of a Phoenix client, your clients will be tests. 
+Our `%Chat{}` state will be simpler. It will have a `:members` field that is a map. 
+The keys will be user names, and the values are processes, represented as `PID`s. 
+Then we can send messages directly to each user process. 
 
 ## Lab instructions
 
