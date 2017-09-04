@@ -3,6 +3,8 @@ defmodule Lab6 do
     defstruct [:members]
   end
 
+  use GenServer
+
   # PUBLIC API
 
   def new() do
