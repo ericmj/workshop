@@ -2,7 +2,7 @@ defmodule Lab4 do
   def print_first_message() do
     spawn(fn ->
       receive do
-        message -> IO.puts(message)
+        message -> IO.write(:stderr, message)
       end
     end)
   end
@@ -14,7 +14,7 @@ defmodule Lab4 do
   defp print_all_messages_recursive() do
     receive do
       message ->
-        IO.puts(message)
+        IO.write(:stderr, message)
         print_all_messages_recursive()
     end
   end

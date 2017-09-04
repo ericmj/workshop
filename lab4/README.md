@@ -11,11 +11,12 @@ The `lab4` directory has a file `lib/lab4.ex` which contains an implementation o
 room with some stubbed out functions. As usual, use that template to implement features
 in your chatroom until all of your tests pass.
 
-  1. Create a process that just prints the first message it receives with `IO.puts/1`
-     and then dies, it should return the `pid` of the new process.
+  1. Create a process that just prints the first message it receives with `IO.write(:stderr, message)`
+     and then dies, it should return the `pid` of the new process. We use `:stderr`
+     as output device to be able to easily capture it in tests.
 
   2. Create a process that prints messages like in the previous task, but instead
-     of dying after the first message, keep printing new messages with `IO.puts/1`.
+     of dying after the first message, keep printing new messages with `IO.write(:stderr, message)`.
 
   3. Create a process that waits for a message containing a list, sum the list
      (from lab1) and reply to the original process. The message will be in the format:
