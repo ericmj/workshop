@@ -12,15 +12,13 @@ Again it will be a `%Lab5.Chat{}` struct with a single field `:members`. The mem
 field will hold a map where the key is the user name and the value is the `pid`
 of the user process, `%{username => pid}`.
 
-This is how chats are usually modeled in Elixir, you have a process for each user,
-this process could also manage the socket connection between the user and the server.
-And you have a single process that orchestrates the message passing between users
-in a chat room, this is the process we will be working on and the client processes
-will be handled in the tests.
+This is how chats are usually modeled in Elixir:
+* you have a process for each user
+* the process manages inbound messages, perhaps from a socket
+* you have a single process that orchestrates the message passing between users
 
-We will keep the public function from lab 3, but instead of the implementation
-being in the function itself they will send a message to the chat room process.
-Check out `lib/lab5.ex` for examples.
+In this lab, we'll shift the implementation from simple functions to the above
+processes. Instead of a Phoenix client, your clients will be tests. 
 
 ## Lab instructions
 
@@ -28,10 +26,8 @@ As usual, in the directory `lab5`, you'll see a file called `lib/lab5.ex` with
 several stubbed out functions. You can run your tests using `mix test`, and
 implement the stubbed out functions until all of your tests pass.
 
-Since the implementation is inside a separate process we don't want to raise if
-a user is trying to join that has already joined and respectively for leaving.
-Instead the functions should return `:ok` or `{:error, message}` when an invalid
-username is given and the process should continue.
+Like most Elixir concurrent processes, instead of raising exceptions, errors 
+will return {:error, "message"}. 
 
 ## Links
 
