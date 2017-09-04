@@ -13,7 +13,7 @@ Each of the sections will have the following parts:
 
 
 
-## Section 1
+## Section 1: Basics with Mix and language abstractions
 Learn Elixir mix, the primary build tool, and language basics including 
 * mix
 * modules and functions
@@ -22,28 +22,35 @@ Learn Elixir mix, the primary build tool, and language basics including
 * lists
 * matches
 
-## Section 2
+## Section 2: Lists, tuples, and matches
 Learn to use core language concepts including
 * higher order functions
 * Enum
 * pipes
 * for comprehensions
 
-## Section 3
+## Section 3: Maps, structs and immutability
 Learn to use structs and maps to solve real world problems. Start a chat room that uses concepts: 
 * structs
 * maps
 * immutability
 
-## Section 4
+## Section 4: Concurrency Primatives
 Elixir is a concurrent language. Use basic concurrency constructs including
 * send
 * receive
 * spawn
 
-## Section 5
+## Section 5: Basic concurrency abstractions
 Elixir supports some higher level abstractions for concurrency. We'll cover the simplest, including
 * Tasks
 * Agents
 
-## Section 6 
+## Section 6: OTP
+Elixir uses OTP, a concurrency abstraction that is in the center of most advanced Elixir programming.
+In this section, we'll cover OTP concepts including
+* Call and Cast
+* Supervisors
+
+## Breaks and Lunch
+Depending on class speed
