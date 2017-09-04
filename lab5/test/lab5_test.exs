@@ -29,7 +29,7 @@ defmodule Lab5Test do
   end
 
   test "push message", %{room: room} do
-    spawn_link(fn ->
+    pid1 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Joe")
       # Wait until Robert joined
       Process.sleep(100)
@@ -38,17 +38,19 @@ defmodule Lab5Test do
       refute_receive {:message, "Joe", "Hello World"}
     end)
 
-    spawn_link(fn ->
+    pid2 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Robert")
       # Don't send message to yourself
       assert_receive {:message, "Joe", "Hello World"}
       # Only receive one message
       refute_receive {:message, "Robert", "Hello World"}
     end)
+
+    await_exits([pid1, pid2])
   end
 
   test "broadcast message", %{room: room} do
-    spawn_link(fn ->
+    pid1 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Joe")
       # Wait until Robert joined
       Process.sleep(100)
@@ -57,18 +59,28 @@ defmodule Lab5Test do
       refute_receive {:message, "Robert", "Hello World"}
     end)
 
-    spawn_link(fn ->
+    pid2 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Robert")
       assert_receive {:message, "Joe", "Hello World"}
       # Only receive one message
       refute_receive {:message, "Robert", "Hello World"}
     end)
 
-    spawn_link(fn ->
+    pid3 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Mike")
       assert_receive {:message, "Joe", "Hello World"}
       # Only receive one message
       refute_receive {:message, "Robert", "Hello World"}
+    end)
+
+    await_exits([pid1, pid2, pid3])
+  end
+
+  defp await_exits(pids) do
+    pids
+    |> Enum.map(&{&1, Process.monitor(&1)})
+    |> Enum.each(fn {pid, ref} ->
+      assert_receive {:DOWN, ^ref, :process, ^pid, :normal}, 100, "No EXIT message received, the process probbably deadlocked"
     end)
   end
 end

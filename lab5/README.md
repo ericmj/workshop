@@ -41,4 +41,4 @@ username is given and the process should continue.
 
 ## Solution ( no peeking :) )
 
-See solution.ex in the lab5 directory.
+See `solution.ex` in the `lab5` directory.
