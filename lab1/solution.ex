@@ -14,7 +14,7 @@ defmodule Lab1 do
   end
 
   def sum([head | tail]) do
-    head + task4(tail)
+    head + sum(tail)
   end
   def sum([]) do
     0

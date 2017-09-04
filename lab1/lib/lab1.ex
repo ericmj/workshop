@@ -11,11 +11,11 @@ defmodule Lab1 do
     raise "not implemented yet"
   end
 
-  def min() do
+  def min(_list) do
     raise "not implemented yet"
   end
 
-  def average() do
+  def average(_list) do
     raise "not implemented yet"
   end
 end
