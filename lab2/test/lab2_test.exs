@@ -32,7 +32,7 @@ defmodule Lab2Test do
   test "task 5: three_largest" do
     assert Lab2.three_largest([]) == []
     assert Lab2.three_largest([4, 9, 6, 3, 1]) == [4, 6, 9]
-    assert Lab2.three_largest([-7, 3, 0, 9, 3, 2]) == [9, 3, 3]
+    assert Lab2.three_largest([-7, 3, 0, 9, 3, 2]) == [3, 3, 9]
     assert Lab2.three_largest([5, -2]) == [-2, 5]
   end
 
@@ -40,6 +40,6 @@ defmodule Lab2Test do
     assert Lab2.capitalize_all("") == ""
     assert Lab2.capitalize_all("foo bar") == "Foo Bar"
     assert Lab2.capitalize_all("FOO BAR") == "Foo Bar"
-    assert Lab2.capitalize_all("elixirconf US  2017") == "Elixirconf US  2017"
+    assert Lab2.capitalize_all("elixirconf US  2017") == "Elixirconf Us  2017"
   end
 end

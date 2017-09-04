@@ -11,7 +11,7 @@ defmodule Lab2 do
   end
 
   defp do_num_bits(<<_bit::1, rest::bitstring>>, count) do
-    do_num_bits(bitstring, count + 1)
+    do_num_bits(rest, count + 1)
   end
   defp do_num_bits(<<>>, count) do
     count
@@ -29,9 +29,9 @@ defmodule Lab2 do
 
   def three_largest(list) do
     list
-    |> Enum.sort()
-    |> Enum.take(3)
     |> Enum.sort(&>=/2)
+    |> Enum.take(3)
+    |> Enum.sort(&<=/2)
   end
 
   def capitalize_all(string) do
