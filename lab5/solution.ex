@@ -1,42 +1,97 @@
-defmodule Lab6 do
-  defmodule Room do
+defmodule Lab5 do
+  defmodule Chat do
     defstruct [:members]
   end
 
-  def start_link do
-    Agent.start_link(fn ->
-      %Room{members: %{}}
+  def new() do
+    spawn_link(fn ->
+      loop(%Chat{members: %{}})
     end)
+  end
+
+  defp loop(chat) do
+    receive do
+      {:has_member?, pid, username} ->
+        send(pid, Map.has_key?(chat.members, username))
+        loop(chat)
+
+      {:join, pid, username} ->
+        if Map.has_key?(chat.members, username) do
+          send(pid, {:error, "username already taken"})
+          loop(chat)
+        else
+          send(pid, :ok)
+          members = Map.put(chat.members, username, [])
+          loop(%{chat | members: members})
+        end
+
+      {:leave, pid, username} ->
+        if Map.has_key?(chat.members, username) do
+          send(pid, :ok)
+          members = Map.delete(chat.members, username)
+          loop(%{chat | members: members})
+        else
+          send(pid, {:error, "user not in chat"})
+          loop(chat)
+        end
+
+      {:members, pid} ->
+        members = Enum.map(chat.members, fn {username, _pid} -> username end)
+        send(pid, members)
+        loop(chat)
+
+      {:push_message, pid, to, from, message} ->
+        case Map.fetch(chat.members, to) do
+          {:ok, to} ->
+            send(to, {:message, from, message})
+            send(pid, :ok)
+            loop(chat)
+          :error ->
+            send(pid, {:error, "user not in chat"})
+            loop(chat)
+        end
+
+      {:broadcast_message, pid, from, message} ->
+        chat.members
+        |> Enum.map(fn {_username, to} -> to end)
+        |> Enum.each(&send(&1, {:message, from, message}))
+        send(pid, :ok)
+        loop(chat)
+    end
+  end
+
+  defp send_and_wait_reply(pid, message) do
+    send(pid, message)
+    receive do
+      message ->
+        message
+    after
+      1000 ->
+        raise "timeout waiting for reply"
+    end
+  end
+
+  def has_member?(pid, username) do
+    send_and_wait_reply(pid, {:has_member?, self(), username})
   end
 
   def join(pid, username) do
-    from = self()
-    Agent.update(pid, fn room ->
-      member = %{name: username, pid: from}
-      members = Map.put(room.members, username, member)
-      %{room | members: members}
-    end)
+    send_and_wait_reply(pid, {:join, self(), username})
   end
 
   def leave(pid, username) do
-    Agent.update(pid, fn room ->
-      members = Map.delete(room.members, username)
-      %{room | members: members}
-    end)
+    send_and_wait_reply(pid, {:leave, self(), username})
+  end
+
+  def members(pid) do
+    send_and_wait_reply(pid, {:members, self()})
   end
 
   def send_message(pid, from, to, message) do
-    Agent.get(pid, fn room ->
-      %{pid: pid} = Map.fetch!(room.members, to)
-      send(pid, {from, message})
-    end)
+    send_and_wait_reply(pid, {:push_message, self(), from, to, message})
   end
 
   def send_messages(pid, from, message) do
-    Agent.get(pid, fn room ->
-      Enum.map(room.members, fn {_name, %{pid: pid}} ->
-        send(pid, {from, message})
-      end)
-    end)
+    send_and_wait_reply(pid, {:broadcast_message, self(), from, message})
   end
 end

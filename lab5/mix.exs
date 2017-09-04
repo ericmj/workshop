@@ -1,8 +1,8 @@
-defmodule Lab6.Mixfile do
+defmodule Lab5.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :lab6,
+    [app: :lab5,
      version: "0.1.0",
      elixir: "~> 1.0",
      build_embedded: Mix.env == :prod,
@@ -27,6 +27,6 @@ defmodule Lab6.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:true_story, ">= 0.0.0"}]
+    []
   end
 end
