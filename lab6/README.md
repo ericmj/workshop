@@ -4,18 +4,18 @@
 
 In this lab we will rebuild the chat room from the previous lab with an OTP `GenServer`.
 
-Notice the simplicity. The `GenServer` removes boileriplate your code would otherwise 
-have to handle. 
+Notice the simplicity. The `GenServer` removes boilerplate your code would otherwise
+have to handle.
 
 You will replace the `send_and_wait_reply` function from Lab 5 with a `GenServer.call`.
 
-You'll have a `handle_call` for each `GenServer.call`. OTP will call this callback 
+You'll have a `handle_call` for each `GenServer.call`. OTP will call this callback
 every time a "call" arrives to the process.
 
 From the callback we need to send a reply and return the updated chat room, just like
 we did in lab 5. You'll do so by returning a `{:reply, reply, state}` tuple from the
 callback where `reply` is the value you want to send back to the caller and `state`
-is our chat room struct, which becomes the new process state. 
+is our chat room struct, which becomes the new process state.
 
 ## Lab instructions
 
@@ -31,11 +31,9 @@ We will reuse the test suite from Lab6 since we are only changing the implementa
 
 * API docs: https://hexdocs.pm/elixir/
 
-* `GenServer`: https://hexdocs.pm/elixir/GenServer.html
+* `GenServer` API: https://hexdocs.pm/elixir/GenServer.html
 
-TODO: Add genserver links to `handle_call` and `call`
-
-* OTP guide: https://elixir-lang.org/getting-started/TODO
+* `GenServer` guide: https://elixir-lang.org/getting-started/mix-otp/genserver.html
 
 ## Solution ( no peeking :) )
 
