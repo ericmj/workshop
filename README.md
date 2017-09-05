@@ -31,7 +31,7 @@ The repository for all labs is found at https://github.com/ericmj/workshop.
 
   1. git clone from your console
 
-        ```$ git clone git@github.com:ericmj/workshop.git```
+        ```$ git clone https://github.com/ericmj/workshop.git```
 
   2. Enter the workshop directory
 
