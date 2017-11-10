@@ -30,5 +30,6 @@ defmodule Lab1Test do
     assert Lab1.average([5]) == 5
     assert Lab1.average([5, 5]) == 5
     assert Lab1.average([5, 6, 7]) == 6
+    assert Lab1.average([]) == nil
   end
 end
