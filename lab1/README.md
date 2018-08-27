@@ -9,28 +9,28 @@ matching.
 
 ### Lab instructions
 
-Run files in your shell with `$ elixir lib/lab1.ex`
+Run files in your shell with `$ elixir lib/lab1.ex`.
 
-Run the tests in your shell with `$ mix test`
+Run the tests in your shell with `$ mix test`. Check the README in the base directory for more
+detailed instructions on how to run tests.
 
-You will notice that your tests fail. Your job is to implement the tasks so
+You will notice that your tests fail. Your job is to implement the functions so
 that the tests pass.
 
 As you build your functions, you can require each separate file in
-in Elixir's interactive shell `$ iex -r lib/lab1.ex`. Alternatively, you can
-load and start the full Mix project environment with `$ iex -S mix`.
+in Elixir's interactive shell with `$ iex -r lib/lab1.ex`. Alternatively, you can load and
+start the full Mix project environment with `$ iex -S mix`.
 
-After changes to a module the console can be reloaded with `r Lab1` in IEx. Check the
-README in the base directory for instructions on how to run tests.
+After changes to a module, that module can be reloaded in IEx with `r(Lab1)`.
 
   1. Enter the existing directory `lab1`. There is a stub module `Lab1` in the file `lib/lab1.ex`,
      all tasks in this lab should be implemented as functions in this module.
 
   2. Return the first and third element of a list.
 
-  3. Return all but the three first elements of a list.
+  3. Return all but the first three elements of a list.
 
-  4. Add up all of the elements of a list.
+  4. Given a list of integers, add up all of the elements of that list.
 
   5. Return the minimum value of a list with recursion.
 
