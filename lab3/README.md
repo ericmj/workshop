@@ -2,24 +2,23 @@
 
 ### Lab purpose
 
-In this lab, we will implement a chat room. Elixir is an immutable language, that means
-instead of having actions modifying an object we will have functions that makes
-a transformation on our chat room data structure and returns a new chat room
-leaving the original unchanged.
+In this lab, we will implement a chat room. Elixir is an immutable language, which means that
+actions don't modify objects. Instead, we will have functions that transform our chat room data
+structure and return a new chat room, leaving the original unchanged.
 
 The chat room data structure, expressed as an Elixir struct `%Lab3.Chat{}` in our
-code has a single field `:members`. The members field will hold a map where the
+code, has a single field `:members`. The `:members` field holds a map where the
 key is the user name and the value is the messages to that user, `%{username => messages}`.
-The messages is a list of tuples `{from, text}` where `from` is the user name of
+`messages` is a list of tuples `{from, text}` where `from` is the username of the
 sender and `text` is the contents of the message.
 
 As you can see the chat room struct we are working with is nested with multiple levels of data
-structures, this is common in functional programming, and in this lab we will learn
+structures. This is common in functional programming, and in this lab we will learn
 how to work with such data structures.
 
 ### Lab instructions
 
-The `lab3` directory has a file `lib/lab3.ex` which contains an implementation of chat
+The `lab3` directory has a file `lib/lab3.ex` which contains an implementation of out chat
 room with some stubbed out functions. These are the functions you'll implement. For each
 new function, you will:
 
@@ -30,12 +29,12 @@ new function, you will:
 Below are the functions for the chat room we will implement in this lab.
 
   * `leave()` will remove a member from the chatroom
-  * `members()` will return the member names in the chatroom
+  * `members()` will return the names of the members in the chatroom
   * `send_message()` will add a new message to the message list for a user
   * `send_messages()` will add a new message to the message list for all users
 
-When joining the function will raise if the user has already joined, the `leave`
-function should do the same if a user tries to leave that hasn't already joined.
+When joining, the function will raise if the user has already joined. The `leave`
+function should do the same if a user that hasn't joined yet tries to leave.
 
 If you have more time, you can implement two other functions, which filter through messages in the chatroom.
 
@@ -43,8 +42,8 @@ If you have more time, you can implement two other functions, which filter throu
 
 In this lab we will be using the `Map` and `Enum` modules, so take a quick look through
 the documentation for those modules before you get started so you know roughly what
-the provide. If you get stuck anywhere I would also recommend going over the functions
-in those modules to see if there is function that will help you solve your problem.
+they provide. If you get stuck anywhere, try to go over the functions
+in those modules to see if there is a function that could help you solve your problem.
 
 
 ### Links

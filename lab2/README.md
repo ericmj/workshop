@@ -5,9 +5,8 @@
 In the previous lab we learned the basics about running scripts and tests,
 pattern matching, and recursion.
 
-Pattern matching and recursion are powerful tools and Elixir developers often use
-these tools. For more common tasks the standard library provides you with higher-level
-building blocks.
+Pattern matching and recursion are powerful tools that Elixir developers often use.
+However, for many common tasks the standard library provides higher-level building blocks.
 
 In this we lab will introduce new data types and new forms of pattern matching
 with binaries. We are also going to use using higher order functions with the
@@ -17,21 +16,23 @@ with pipes.
 
 ### Lab instructions
 
-Like the last lab implement the stubbed out functions in `lib/lab2.ex` and run the tests to verify the implementation is correct.
+Like you did in the last lab, implement the stubbed out functions in `lib/lab2.ex` and run
+the tests with `$ mix test` to verify that the implementation is correct.
 
-  1. Return a list of all bytes in a binary
+  1. Return a list of all bytes in a binary.
 
-  2. Return the number of bits in a binary
+  2. Return the number of bits in a binary.
 
-  3. Double all numbers in a list using the `Enum` module
+  3. Double all numbers in a list of numbers using the `Enum` module.
 
-  4. Separate all odd and even numbers in a list, return as a tuple containing a list of odds and list of evens
+  4. Separate all odd and even numbers in a list. Return the result as a tuple containing a list of odd numbers and list of even numbers.
 
-  5. Return the three largest numbers from a list, in the order of the smallest number first
+  5. Return the three largest numbers from a list, in the order of the smallest number first.
 
-  6. Capitalize every word in a string, each word is separate by a space. Tip: use the `String.split/2` and `Enum.join/2` functions. Try to write it as a single pipeline
+  6. Capitalize every word in a string. Each word in the string is separate by a space. *Tip*: use the `String.split/2` and `Enum.join/2` functions. Try to write this function as a single pipeline.
 
-  7. Return the second longest word in string, each word is separate by a space. If the list is too short return `nil`. Tip: use `Enum.sort_by/3` to sort the list and `elem/2` to fetch a value from a tuple. Again, try to write it as a single pipeline.
+  7. Return the second longest word in string. Each word in the string is separate by a space. If the string is too short (has less than two words), return `nil`. Tip: use `Enum.sort_by/3` to sort the list and `elem/2` to fetch a value from a tuple. Again, try to write this function as a single pipeline.
+
 
 ### Links
 

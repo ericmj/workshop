@@ -1,4 +1,4 @@
-# LAB1
+# Lab1
 
 ### Lab purpose
 
