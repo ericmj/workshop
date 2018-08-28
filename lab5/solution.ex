@@ -46,6 +46,7 @@ defmodule Lab5 do
             send(to, {:message, from, message})
             send(pid, :ok)
             loop(chat)
+
           :error ->
             send(pid, {:error, "user not in chat"})
             loop(chat)
@@ -56,6 +57,7 @@ defmodule Lab5 do
         |> Map.delete(from)
         |> Map.values()
         |> Enum.each(&send(&1, {:message, from, message}))
+
         send(pid, :ok)
         loop(chat)
     end
@@ -63,6 +65,7 @@ defmodule Lab5 do
 
   defp send_and_wait_reply(pid, message) do
     send(pid, message)
+
     receive do
       message ->
         message

@@ -38,6 +38,7 @@ defmodule Lab3 do
       {:ok, messages} ->
         members = Map.put(chat.members, to, [{from, message} | messages])
         %{chat | members: members}
+
       :error ->
         raise ArgumentError, message: "user not in chat"
     end
@@ -45,9 +46,12 @@ defmodule Lab3 do
 
   def send_messages(chat, from, message) do
     message_tuple = {from, message}
-    members = Enum.into(chat.members, %{}, fn {username, messages} ->
-      {username, [message_tuple | messages]}
-    end)
+
+    members =
+      Enum.into(chat.members, %{}, fn {username, messages} ->
+        {username, [message_tuple | messages]}
+      end)
+
     %{chat | members: members}
   end
 

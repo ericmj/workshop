@@ -2,6 +2,7 @@ defmodule Lab2 do
   def binary_to_list(<<>>) do
     []
   end
+
   def binary_to_list(<<byte, rest::binary>>) do
     [byte | binary_to_list(rest)]
   end
@@ -13,6 +14,7 @@ defmodule Lab2 do
   defp do_num_bits(<<_bit::1, rest::bitstring>>, count) do
     do_num_bits(rest, count + 1)
   end
+
   defp do_num_bits(<<>>, count) do
     count
   end

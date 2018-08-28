@@ -33,9 +33,11 @@ defmodule Lab4 do
     refs =
       Enum.map(list_of_lists, fn list ->
         ref = make_ref()
+
         spawn(fn ->
           send(current_pid, {ref, Enum.sum(list)})
         end)
+
         ref
       end)
 

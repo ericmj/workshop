@@ -75,6 +75,7 @@ defmodule Lab6 do
       {:ok, to} ->
         send(to, {:message, from, message})
         {:reply, :ok, chat}
+
       :error ->
         {:reply, {:error, "user not in chat"}, chat}
     end
@@ -85,6 +86,7 @@ defmodule Lab6 do
     |> Map.delete(from)
     |> Map.values()
     |> Enum.each(&send(&1, {:message, from, message}))
+
     {:reply, :ok, chat}
   end
 end
