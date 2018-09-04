@@ -7,9 +7,8 @@ that make use of basic Elixir concurrency using primitives.
 
 ### Lab instructions
 
-The `lab4` directory has a file `lib/lab4.ex` which contains an implementation of a chat
-room with some stubbed out functions. As usual, use that template to implement features
-in your chatroom until all of your tests pass.
+The `lab4` directory has a file `lib/lab4.ex` which contains an implementation of process-related
+functions. As usual, use that template to implement features until all of your tests pass.
 
   1. Create a process that just prints the first message it receives
      and then dies. This function should return the `pid` of the new process. The message needs to
