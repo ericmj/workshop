@@ -8,6 +8,7 @@ defmodule Lab4Test do
     end
   end
 
+  @tag :skip
   test "task 1: print_first_message" do
     pid = Lab4.print_first_message()
 
@@ -26,6 +27,7 @@ defmodule Lab4Test do
     refute Process.alive?(pid)
   end
 
+  @tag :skip
   test "task 2: print_all_messages" do
     pid = Lab4.print_all_messages()
 
@@ -44,6 +46,7 @@ defmodule Lab4Test do
     assert Process.alive?(pid)
   end
 
+  @tag :skip
   test "task 3: sum" do
     pid = Lab4.sum()
     send(pid, {:sum, self(), 1..2})
@@ -54,6 +57,7 @@ defmodule Lab4Test do
     assert receive_once() == 55
   end
 
+  @tag :skip
   test "task 4: sum_all" do
     assert Lab4.sum_all([1..2]) == [3]
     assert Lab4.sum_all([1..2, 3..4, 5..6]) == [3, 7, 11]

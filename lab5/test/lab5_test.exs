@@ -6,6 +6,7 @@ defmodule Lab5Test do
     %{room: Lab5.new()}
   end
 
+  @tag :skip
   test "join new member", %{room: room} do
     assert :ok = Lab5.join(room, "Joe")
     assert Lab5.has_member?(room, "Joe")
@@ -13,21 +14,25 @@ defmodule Lab5Test do
     assert Lab5.members(room) == ["Joe"]
   end
 
+  @tag :skip
   test "join existing member", %{room: room} do
     assert :ok =  Lab5.join(room, "Joe")
     assert {:error, _} = Lab5.join(room, "Joe")
   end
 
+  @tag :skip
   test "leave existing member", %{room: room} do
     assert :ok = Lab5.join(room, "Joe")
     assert :ok = Lab5.leave(room, "Joe")
     refute Lab5.has_member?(room, "Joe")
   end
 
+  @tag :skip
   test "leave non-existent member", %{room: room} do
     assert {:error, _} = Lab5.leave(room, "Joe")
   end
 
+  @tag :skip
   test "push message", %{room: room} do
     pid1 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Joe")
@@ -48,6 +53,7 @@ defmodule Lab5Test do
     await_exits([pid1, pid2])
   end
 
+  @tag :skip
   test "broadcast message", %{room: room} do
     pid1 = spawn_link(fn ->
       assert :ok = Lab5.join(room, "Joe")

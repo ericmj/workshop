@@ -1,12 +1,14 @@
 defmodule Lab2Test do
   use ExUnit.Case
 
+  @tag :skip
   test "task 1: binary_to_list" do
     assert Lab2.binary_to_list(<<1, 2, 3>>) == [1, 2, 3]
     assert Lab2.binary_to_list(<<>>) == []
     assert Lab2.binary_to_list(<<10::16, 300::16>>) == [0, 10, 1, 44]
   end
 
+  @tag :skip
   test "task 2: num_bits" do
     assert Lab2.num_bits(<<1, 2, 3>>) == 24
     assert Lab2.num_bits(<<>>) == 0
@@ -15,6 +17,7 @@ defmodule Lab2Test do
     assert Lab2.num_bits(<<12::7, 10::4>>) == 11
   end
 
+  @tag :skip
   test "task 3: double_all" do
     assert Lab2.double_all([]) == []
     assert Lab2.double_all([1, 2, 3]) == [2, 4, 6]
@@ -22,6 +25,7 @@ defmodule Lab2Test do
     assert Lab2.double_all([42.53]) == [85.06]
   end
 
+  @tag :skip
   test "task 4: odds_and_evens" do
     assert Lab2.odds_and_evens([]) == {[], []}
     assert Lab2.odds_and_evens([1, 3, 5]) == {[1, 3, 5], []}
@@ -29,6 +33,7 @@ defmodule Lab2Test do
     assert Lab2.odds_and_evens([6, 5, 4, 3, 2, 1]) == {[5, 3, 1], [6, 4, 2]}
   end
 
+  @tag :skip
   test "task 5: three_largest" do
     assert Lab2.three_largest([]) == []
     assert Lab2.three_largest([4, 9, 6, 3, 1]) == [4, 6, 9]
@@ -36,6 +41,7 @@ defmodule Lab2Test do
     assert Lab2.three_largest([5, -2]) == [-2, 5]
   end
 
+  @tag :skip
   test "task 6: capitalize_all" do
     assert Lab2.capitalize_all("") == ""
     assert Lab2.capitalize_all("foo bar") == "Foo Bar"
@@ -43,6 +49,7 @@ defmodule Lab2Test do
     assert Lab2.capitalize_all("elixirconf US  2017") == "Elixirconf Us  2017"
   end
 
+  @tag :skip
   test "task 7: second_longest" do
     assert Lab2.second_longest("fo bar") == "fo"
     assert Lab2.second_longest("foo ba") == "ba"

@@ -14,8 +14,9 @@ Run files in your shell with `$ elixir lib/lab1.ex`.
 Run the tests in your shell with `$ mix test`. Check the README in the base directory for more
 detailed instructions on how to run tests.
 
-You will notice that your tests fail. Your job is to implement the functions so
-that the tests pass.
+You will notice that all your tests are skipped. Your job is to implement the functions so
+that the tests pass. Remove one `@tag :skip` line at a time and focus on having that test pass.
+Repeat until you have no more skipped tests.
 
 As you build your functions, you can require each separate file in
 in Elixir's interactive shell with `$ iex -r lib/lab1.ex`. Alternatively, you can load and
