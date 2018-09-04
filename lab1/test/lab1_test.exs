@@ -28,7 +28,7 @@ defmodule Lab1Test do
     assert Lab1.min([1, 2, 3]) == 1
     assert Lab1.min([3, 2, 1]) == 1
     assert Lab1.min([2, 1, 3]) == 1
-    assert Lab1.min([1, -1, 0]) == -3
+    assert Lab1.min([1, -1, 0]) == -1
   end
 
   @tag :skip
