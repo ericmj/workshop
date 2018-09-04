@@ -61,5 +61,8 @@ defmodule Lab4Test do
   test "task 4: sum_all" do
     assert Lab4.sum_all([1..2]) == [3]
     assert Lab4.sum_all([1..2, 3..4, 5..6]) == [3, 7, 11]
+
+    assert Lab4.sum_all([[1, 2]]) == [3]
+    assert Lab4.sum_all([[1, 2], [3, 4], [5, 6]]) == [3, 7, 11]
   end
 end
