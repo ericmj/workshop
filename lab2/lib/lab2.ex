@@ -15,10 +15,6 @@ defmodule Lab2 do
     raise "not implemented yet"
   end
 
-  def count_occurances(_list) do
-    raise "not implemented yet"
-  end
-
   def three_largest(_list) do
     raise "not implemented yet"
   end
