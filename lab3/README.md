@@ -29,7 +29,7 @@ new function, you will:
 Below are the functions for the chat room we will implement in this lab.
 
   * `leave()` will remove a member from the chatroom
-  * `members()` will return the names of the members in the chatroom
+  * `members()` will return the names of the members in the chatroom, as a list of strings
   * `send_message()` will add a new message to the message list for a user
   * `send_messages()` will add a new message to the message list for all users
 
