@@ -21,6 +21,8 @@ defmodule Lab5 do
           loop(chat)
         else
           send(pid, :ok)
+          # Here we store the PID of the calling process to
+          # later be able to send send messages to it
           members = Map.put(chat.members, username, pid)
           loop(%{chat | members: members})
         end
