@@ -16,7 +16,7 @@ defmodule Lab6 do
   end
 
   def join(server, username) do
-    GenServer.call(server, {:join, username})
+    GenServer.call(server, {:join, self(), username})
   end
 
   def members(_server) do
@@ -45,11 +45,11 @@ defmodule Lab6 do
     {:reply, Map.has_key?(chat.members, username), chat}
   end
 
-  def handle_call({:join, username}, _from, chat) do
+  def handle_call({:join, pid, username}, _from, chat) do
     if Map.has_key?(chat.members, username) do
       {:reply, {:error, "username already taken"}, chat}
     else
-      members = Map.put(chat.members, username, [])
+      members = Map.put(chat.members, username, pid)
       chat = %{chat | members: members}
       {:reply, :ok, chat}
     end
