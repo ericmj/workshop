@@ -27,7 +27,7 @@ defmodule Lab6 do
     raise "not implemented yet"
   end
 
-  def send_message(_server, _from, _to, _message) do
+  def send_message(_server, _to, _from, _message) do
     raise "not implemented yet"
   end
 

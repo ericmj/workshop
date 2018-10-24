@@ -27,8 +27,8 @@ defmodule Lab6 do
     GenServer.call(server, {:leave, username})
   end
 
-  def send_message(server, from, to, message) do
-    GenServer.call(server, {:send_message, from, to, message})
+  def send_message(server, to, from, message) do
+    GenServer.call(server, {:send_message, to, from, message})
   end
 
   def send_messages(server, from, message) do
