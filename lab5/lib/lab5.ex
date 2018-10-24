@@ -21,7 +21,7 @@ defmodule Lab5 do
           loop(chat)
         else
           send(pid, :ok)
-          members = Map.put(chat.members, username, [])
+          members = Map.put(chat.members, username, pid)
           loop(%{chat | members: members})
         end
     end
@@ -46,19 +46,19 @@ defmodule Lab5 do
     send_and_wait_reply(pid, {:join, self(), username})
   end
 
-  def members(_chat) do
+    raise "not implemented yet"
+  def members(pid) do
+  end
+
+  def leave(_pid, _username) do
     raise "not implemented yet"
   end
 
-  def leave(_chat, _username) do
+  def send_message(_pid, _from, _to, _message) do
     raise "not implemented yet"
   end
 
-  def send_message(_chat, _from, _to, _message) do
-    raise "not implemented yet"
-  end
-
-  def send_messages(_chat, _from, _message) do
+  def send_messages(_pid, _from, _message) do
     raise "not implemented yet"
   end
 end
