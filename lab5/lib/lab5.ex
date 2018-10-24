@@ -54,7 +54,7 @@ defmodule Lab5 do
     raise "not implemented yet"
   end
 
-  def send_message(_pid, _from, _to, _message) do
+  def send_message(_pid, _to, _from, _message) do
     raise "not implemented yet"
   end
 

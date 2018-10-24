@@ -91,8 +91,8 @@ defmodule Lab5 do
     send_and_wait_reply(pid, {:members, self()})
   end
 
-  def send_message(pid, from, to, message) do
-    send_and_wait_reply(pid, {:push_message, self(), from, to, message})
+  def send_message(pid, to, from, message) do
+    send_and_wait_reply(pid, {:push_message, self(), to, from, message})
   end
 
   def send_messages(pid, from, message) do
